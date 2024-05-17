@@ -2,7 +2,6 @@
   import { onMount } from "svelte"
   import Search from "./Search.svelte"
   import Select from "svelte-select"
-  import SelectMultiple from "./SelectMultiple.svelte"
   import Icon from "./Icons.svelte"
 
   export let dataset
@@ -12,35 +11,24 @@
   export let selectedMonth = ""
   export let selectedYear = ""
 
-  export let selectedState
-  export let selectedResourceType
-  export let selectedAuthority
-  export let selectedTags
-  export let selectedPolicyGoal
+  // export let selectedResourceType
   export let searchText = ""
   export let row
 
   $: totalEntries = filteredData.length
 
-  const policyGoalsTotal = dataset.data.length
-  function getPGCount(policyGoal) {
-    return dataset.data.filter((row) => row.policy_goals.includes(policyGoal))
-      .length
-  }
-
   const documentsTotal = dataset.data.length
   function getTypesCount(type) {
-    return dataset.data.filter((row) => row.type.includes(type))
-      .length
+    // return dataset.data.filter((row) => row.type.includes(type)).length
+    return dataset.data.filter((row) => row.type === type).length
   }
-
-
 
   const optionIdentifier = "value"
   const labelIdentifier = "label"
 
   function updateActiveTab(val) {
-    const value = val ? val.split("_").join("-") : "all"
+    const value = val ? val.split(' ').join('-') : "all"
+    console.log(value)
     const spanCountActive = document.querySelector(`.options__count--active`)
     const spanCount = document.querySelector(
       `.options__count[data-count="${value}"]`,
@@ -54,9 +42,15 @@
     )
     activeTab.classList.remove(
       "options__btn--tab--active",
-      "options__btn--tab--Resilience--active",
-      "options__btn--tab--Economic-Development--active",
-      "options__btn--tab--Emissions-Reduction--active",
+      "options__btn--tab--Treaty--active",
+      "options__btn--tab-joint-statement--active",
+      "options__btn--tab--exchange-of-notes--active",
+      "options__btn--tab--agreement--active",
+      "options__btn--tab--minutes--active",
+      "options__btn--tab--statement--active",
+      "options__btn--tab--report--active",
+      "options__btn--tab--speech--active",
+      "options__btn--tab--security-consultative-committee--active",
       "options__btn--tab--all--active",
     )
     tabActivate.classList.add(
@@ -111,10 +105,9 @@
     } else if (selectName === "Year") {
       selectedYear = event.detail.value
     } else if (selectName === "Type") {
+      console.log(event.target.value.toLowerCase().split(' ').join('-'))
       updateActiveTab(event.target.value)
       selectedType = event.target.value
-    } else {
-      selectedResourceType = event.detail.value
     }
   }
 
@@ -209,7 +202,7 @@
 </script>
 
 <section class="table-container__header">
-  <h2 class="table-container__subtitle">Explore Policy Goals</h2>
+  <h2 class="table-container__subtitle">Explore Documents</h2>
 </section>
 
 <section class="options__container">
@@ -226,15 +219,17 @@
     {#each dataset.types as type}
       <button
         class="options__btn options__btn--tab options__btn--tab--{type
-          .split('_')
+          .split(' ')
+          .map((word) => word.toLowerCase())
+
           .join('-')} "
-        data-tab={type.split("_").join("-")}
+        data-tab={type.split(" ").join("-")}
         value={type}
         on:click={(event) => handleSelect(event, "Type")}
         >{type.split("_").join(" ")}
         <span
-          data-count={type.split("_").join("-")}
-          class="options__count options__count--{type.split('_').join('-')}"
+          data-count={type.split(" ").join("-")}
+          class="options__count options__count--{type.split(' ').join('-')}"
           >{getTypesCount(type)}</span
         >
       </button>
@@ -249,11 +244,11 @@
       showChevron={true}
       bind:listOpen={isListOpen}
       {optionIdentifier}
-      labelIdentifier={"name"}
+      {labelIdentifier}
       items={dataset.eras}
       placeholder="Select an era"
       on:select={(event) => handleSelect(event, "Era")}
-      on:clear={() => handleClear("Era")}
+      on:clear={(event) => handleClear(event, "Era")}
     />
   </div>
 

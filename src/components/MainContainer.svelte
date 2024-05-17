@@ -12,11 +12,6 @@
   let selectedType = ""
   let selectedMonth = ""
   let selectedYear = ""
-  let selectedState = ""
-  let selectedResourceType = ""
-  let selectedAuthority = ""
-  let selectedTags = []
-  let selectedPolicyGoal = ""
   let searchText
   $: row = { isOpen: false }
 
@@ -71,11 +66,10 @@
       {dataset}
       filteredData={filteredData()}
       bind:row
-      bind:selectedAuthority
-      bind:selectedResourceType
-      bind:selectedState
-      bind:selectedTags
-      bind:selectedPolicyGoal
+      bind:selectedEra
+      bind:selectedType
+      bind:selectedMonth
+      bind:selectedYear
       bind:searchText
     />
 
