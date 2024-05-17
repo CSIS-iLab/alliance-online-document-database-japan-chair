@@ -1,49 +1,63 @@
 <script>
-  import Header from "./Header.svelte";
-  import IntroContent from "./IntroContent.svelte";
-  import Options from "./Options.svelte";
-  import Table from "./Table.svelte";
-  import About from "./About.svelte";
-  import Footer from "./Footer.svelte";
+  import Header from "./Header.svelte"
+  import IntroContent from "./IntroContent.svelte"
+  import Options from "./Options.svelte"
+  import Table from "./Table.svelte"
+  import About from "./About.svelte"
+  import Footer from "./Footer.svelte"
 
-  export let dataset;
-  let selectedState = "";
-  let selectedResourceType = "";
-  let selectedAuthority = "";
-  let selectedTags = [];
-  let selectedPolicyGoal = "";
+  export let dataset
+
+  let selectedEra = ""
+  let selectedType = ""
+  let selectedMonth = ""
+  let selectedYear = ""
+  let selectedState = ""
+  let selectedResourceType = ""
+  let selectedAuthority = ""
+  let selectedTags = []
+  let selectedPolicyGoal = ""
   let searchText
-  $: row = { isOpen: false };
+  $: row = { isOpen: false }
+
+  // info to keep track
+  // filteredActivity == filteredDocument
+  // filteredState == filteredEra
+  // filteredState == filteredType
+  // filteredResource == filteredMonth
+  // filteredAuthority == filteredYear
 
   $: filteredData = () => {
-    return dataset.data.filter(
-      (row) => {
-        const filteredActivity = searchText ? searchText : row.activity.title
-        const filteredState = selectedState ? selectedState : row.state
-        const filteredResource = selectedResourceType ? selectedResourceType : row.type_of_resource
-        const filteredAuthority = selectedAuthority ? selectedAuthority : row.authority
-        const filteredTags = selectedTags.length > 0 ? row.tags.some((tag) => selectedTags.includes(tag)) : row.tags
-        const filteredPolicyGoal = selectedPolicyGoal ? row.policy_goals.some((policy) => selectedPolicyGoal.includes(policy)) : row.policy_goals
+    return dataset.data
+      .filter((row) => {
+        const filteredDocument = searchText ? searchText : row.title
+        const filteredEra = selectedEra ? selectedEra : row.era
+        const filteredType = selectedType ? selectedType : row.type
+        const filteredMonth = selectedMonth ? selectedMonth : row.date
+        const filteredYear = selectedYear ? selectedYear : row.date
 
-        return (row.activity.title.toLowerCase().includes(filteredActivity.toLowerCase()) ||
-          row.state.toLowerCase().includes(filteredActivity.toLowerCase()) || 
-          row.type_of_resource.toLowerCase().includes(filteredActivity.toLowerCase()) ||
-          row.authority.toLowerCase().includes(filteredActivity.toLowerCase())) &&
-          row.state === filteredState &&
-          row.type_of_resource === filteredResource &&
-          row.authority === filteredAuthority &&
-          filteredPolicyGoal &&
-          filteredTags
-      }
-    ).sort(( a, b ) => {
-      if (a.activity.title < b.activity.title) {
-        return -1;
-      } else if (a.activity.title > b.activity.title) {
-        return 1;
-      } else {
-        return 0;
-      }
-    })
+        return (
+          (row.title.toLowerCase().includes(filteredDocument.toLowerCase()) ||
+            row.type.toLowerCase().includes(filteredDocument.toLowerCase()) ||
+            row.era.toLowerCase().includes(filteredDocument.toLowerCase()) ||
+            row.source
+              .toLowerCase()
+              .includes(filteredDocument.toLowerCase())) &&
+          row.type === filteredType &&
+          row.era === filteredEra &&
+          row.date === filteredMonth &&
+          row.date === filteredYear
+        )
+      })
+      .sort((a, b) => {
+        if (a.title < b.title) {
+          return -1
+        } else if (a.title > b.title) {
+          return 1
+        } else {
+          return 0
+        }
+      })
   }
 </script>
 
@@ -53,24 +67,24 @@
   <IntroContent filteredData={filteredData()} />
 
   <section class="table-container">
-      <Options
-        {dataset}
-        filteredData={filteredData()}
-        bind:row
-        bind:selectedAuthority
-        bind:selectedResourceType
-        bind:selectedState
-        bind:selectedTags
-        bind:selectedPolicyGoal
-        bind:searchText
-      />
-    
+    <Options
+      {dataset}
+      filteredData={filteredData()}
+      bind:row
+      bind:selectedAuthority
+      bind:selectedResourceType
+      bind:selectedState
+      bind:selectedTags
+      bind:selectedPolicyGoal
+      bind:searchText
+    />
+
     <Table filteredData={filteredData()} bind:row />
   </section>
   <About />
   <Footer />
 </div>
-    
+
 <style lang="scss">
   @use "../scss/components/table-container";
 </style>
