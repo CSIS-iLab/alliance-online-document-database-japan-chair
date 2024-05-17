@@ -1,7 +1,16 @@
 import { csv } from "d3-fetch"
 
+// Tabs: will be the types
+// filters: Era, Type, Month, Year
+// 4 columns: Title, Date (EST), Type, Era
+// Description and sources will be shown in the hide row
+// console.log(era)
+// era.push('hola')
+// console.log(era)
+// console.log([...era, "mundo"])
 const URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSZbsWyNWxgbsJJd2AuaoNIJ2KkEplWSNK77gxcS_WndRrj1rNnPoxtPNl60HjlmdvQo4UvxBUMEi1S/pub?output=csv"
+  // "https://docs.google.com/spreadsheets/d/e/2PACX-1vSZbsWyNWxgbsJJd2AuaoNIJ2KkEplWSNK77gxcS_WndRrj1rNnPoxtPNl60HjlmdvQo4UvxBUMEi1S/pub?output=csv"
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vSfFaPTW01u50nfDHC4RM0jk9FZD4MC5SYUtZkKjR88-8jx8Dd-8GQfkDY9UUp5ig/pub?gid=529193745&single=true&output=csv"
 
 const policyGoals = [
   "Emissions_Reduction",
@@ -29,10 +38,15 @@ export default function getData() {
 }
 
 function processData(res) {
+  console.log(res)
   const data = res.map((row, index) => transformRow(row, index))
 
   return {
     data,
+    era: getUniqueValues(data, "era"),
+    type: getUniqueValues(data, "type"),
+    months: getMonths(data),
+    years: getYears(data),
     states: formatStates(data),
     tags: formatTags(tags),
     authority: formatUniqueValues(data, "authority"),
@@ -44,18 +58,34 @@ function processData(res) {
 function transformRow(row, index) {
   return {
     id: index,
-    policy_goals: filterByKeys(row, policyGoals),
-    tags: formatTags(filterByKeys(row, tags)),
-    activity: {
-      title: row.title,
-      description: row.description,
-      link: row.URL,
-    },
-    state: row.state,
-    state_name: row.state_name,
-    authority: row.authority,
-    type_of_resource: row.type_of_resource,
+    date: new Date(row.Date),
+    era: row.Era,
+    title: row.Title,
+    description: row.Description,
+    type: row.Type,
+    source: row.Text_Source_Display,
+    source_link: row.Text_Source_Link,
   }
+}
+
+function getUniqueValues(data, key) {
+  console.log(data)
+  return [...new Set(data.map((row) => row[key]))]
+}
+
+function getMonths(data) {
+  console.log(data)
+
+  let months = data.map((row) =>
+    row.date.toLocaleDateString(undefined, { month: "long" })
+  )
+  return [...new Set(months)]
+}
+
+function getYears(data) {
+  let years = data.map((row) => new Date(row.date).getFullYear())
+  return [...new Set(years)].sort(( a, b ) => a - b)
+  
 }
 
 function filterByKeys(row, keys) {

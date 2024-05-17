@@ -1,14 +1,15 @@
 <script>
-  import { onMount } from "svelte";
-  import getData from "./data";
-  import MainContainer from "./components/MainContainer.svelte";
+  import { onMount } from "svelte"
+  import getData from "./data"
+  import MainContainer from "./components/MainContainer.svelte"
 
-  let dataset = {};
+  let dataset = {}
 
   onMount(async () => {
-    const res = await getData();
-    dataset = res;
-  });
+    const res = await getData()
+    dataset = res
+    console.log(dataset)
+  })
 </script>
 
 {#if dataset.data && dataset.data.length > 0}
