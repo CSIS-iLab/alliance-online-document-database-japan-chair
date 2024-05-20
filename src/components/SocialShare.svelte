@@ -27,7 +27,7 @@
     </a>
   </li>
   <li class="share__item">
-    <a href="mailto:energy@csis.org?subject=State Energy | CSIS Energy Security and Climate Change Program" class="share__link" aria-label="Share via email">
+    <a href="mailto:japanchair@csis.org?subject=Alliance Online" class="share__link" aria-label="Share via email">
       <Icon class="icon__share" name="Icon-email" />
     </a>
   </li>
