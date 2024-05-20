@@ -8,19 +8,18 @@
 <div class="wrapper">
   <main class="container intro-content">
     <p class="intro-content__overline--small">
-      Clean Resilient States Initiative
+      <!-- Clean Resilient States Initiative -->
     </p>
     <p class="intro-content__overline--regular">
-      by the Energy Security and Climate Change Program
+      <!-- by the Energy Security and Climate Change Program -->
     </p>
-    <h1 class="intro-content__title">Template for a database SPA</h1>
+    <h1 class="intro-content__title">Alliance Online</h1>
     <p class="intro-content__introduction">
-      A curated database of state-level activities facilitating emissions
-      reductions, positive economic outcomes, and climate resilience—from the <a
+      A curated database of official documents to help users understand the history of the U.S.-Japan Alliance from the post-WWII period to the present day. This is part of the Alliance Online project, created by the <a
         class="intro-content__link"
-        href="https://www.csis.org/programs/energy-security-and-climate-change-program/projects/clean-resilient-states-initiative"
-        target="_blank">Clean Resilient States Initiative</a
-      >, created by the CSIS Energy Security & Climate Change Program.
+        href="https://www.csis.org/programs/japan-chair"
+        target="_blank">CSIS Japan Chair Program</a
+      >.
     </p>
     <p class="intro-content__more">
       <a class="intro-content__link intro-content__link--more" href="#about"
