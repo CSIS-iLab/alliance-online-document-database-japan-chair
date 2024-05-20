@@ -182,8 +182,9 @@
               <div class="extra-content__container">
                 <div class="description">{rows.description}</div>
                 <div class="link">
-                  <a href={rows.link} target="_blank" rel="noopener noreferrer"
-                    >Go to resource<span class="icon-container"
+                  Source: 
+                  <a href={rows.source_link} target="_blank" rel="noopener noreferrer"
+                    >{rows.source}<span class="icon-container"
                       ><Icon name="Icon-open-blank" class="icon" /></span
                     ></a
                   >
