@@ -8,14 +8,14 @@
 <div class="wrapper">
   <main class="container intro-content">
     <p class="intro-content__overline--small">
-      <!-- Clean Resilient States Initiative -->
+      The Evolution of the U.S. - Japan Alliance
     </p>
-    <p class="intro-content__overline--regular">
-      <!-- by the Energy Security and Climate Change Program -->
-    </p>
+    <p class="intro-content__overline--regular">by the Japan Chair Program</p>
     <h1 class="intro-content__title">Alliance Online</h1>
     <p class="intro-content__introduction">
-      A curated database of official documents to help users understand the history of the U.S.-Japan Alliance from the post-WWII period to the present day. This is part of the Alliance Online project, created by the <a
+      A curated database of official documents to help users understand the
+      history of the U.S.-Japan Alliance from the post-WWII period to the
+      present day. This is part of the Alliance Online project, created by the <a
         class="intro-content__link"
         href="https://www.csis.org/programs/japan-chair"
         target="_blank">CSIS Japan Chair Program</a

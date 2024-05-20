@@ -9,7 +9,7 @@
     </a>
   </li>
   <li class="social__item">
-    <a href="https://twitter.com/CSISEnergy" class="social__link" target="_blank" aria-label="Visit the Energy program Twitter page">
+    <a href="https://twitter.com/CSISEnergy" class="social__link" target="_blank" aria-label="Visit the Japan Chair program Twitter page">
       <Icon class="icon__social" name="Icon-twitter" />
     </a>
   </li>
