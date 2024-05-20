@@ -31,9 +31,7 @@ export default function getData() {
 }
 
 function processData(res) {
-  console.log(res)
   const data = res.map((row, index) => transformRow(row, index))
-
   return {
     data,
     eras: getUniqueValues(data, "era"),

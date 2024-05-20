@@ -44,15 +44,16 @@
           row.date === filteredYear
         )
       })
-      .sort((a, b) => {
-        if (a.title < b.title) {
-          return -1
-        } else if (a.title > b.title) {
-          return 1
-        } else {
-          return 0
-        }
-      })
+      .sort((a, b) => new Date(a.date) - new Date(b.date))
+      // .sort((a, b) => {
+      //   if (a.title < b.title) {
+      //     return -1
+      //   } else if (a.title > b.title) {
+      //     return 1
+      //   } else {
+      //     return 0
+      //   }
+      // })
   }
 </script>
 
