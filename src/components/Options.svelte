@@ -18,9 +18,9 @@
   $: totalEntries = filteredData.length
 
   const documentsTotal = dataset.data.length
-  function getTypesCount(type) {
-    // return dataset.data.filter((row) => row.type.includes(type)).length
-    return dataset.data.filter((row) => row.type === type).length
+  function getTypesCount(era) {
+    // return dataset.data.filter((row) => row.era.includes(era)).length
+    return dataset.data.filter((row) => row.era === era).length
   }
 
   const optionIdentifier = "value"
@@ -28,7 +28,7 @@
 
   function updateActiveTab(val) {
     const value = val ? val.split(' ').join('-') : "all"
-    console.log(value)
+    // console.log(value)
     const spanCountActive = document.querySelector(`.options__count--active`)
     const spanCount = document.querySelector(
       `.options__count[data-count="${value}"]`,
@@ -99,15 +99,19 @@
       switchRowBottomLine()
     }
     if (selectName === "Era") {
-      selectedEra = event.detail.value
+      console.log(event.target.value.toLowerCase().split(' ').join('-'))
+      updateActiveTab(event.target.value)
+      selectedEra = event.target.value
+      // selectedEra = event.detail.value
+
     } else if (selectName === "Month") {
       selectedMonth = event.detail.value
     } else if (selectName === "Year") {
       selectedYear = event.detail.value
     } else if (selectName === "Type") {
-      console.log(event.target.value.toLowerCase().split(' ').join('-'))
-      updateActiveTab(event.target.value)
-      selectedType = event.target.value
+      // console.log(event.target.value.toLowerCase().split(' ').join('-'))
+      // updateActiveTab(event.target.value)
+      selectedType = event.detail.value
     }
   }
 
@@ -210,27 +214,27 @@
     <button
       class="options__btn options__btn--tab options__btn--tab--all options__btn--tab--active options__btn--tab--all--active"
       data-tab={"all"}
-      on:click={(event) => handleSelect(event, "Type")}
+      on:click={(event) => handleSelect(event, "Era")}
       >All <span
         data-count={"all"}
         class="options__count options__count--active">{documentsTotal}</span
       >
     </button>
-    {#each dataset.types as type}
+    {#each dataset.eras as era}
       <button
-        class="options__btn options__btn--tab options__btn--tab--{type
+        class="options__btn options__btn--tab options__btn--tab--{era
           .split(' ')
           .map((word) => word.toLowerCase())
 
           .join('-')} "
-        data-tab={type.split(" ").join("-")}
-        value={type}
-        on:click={(event) => handleSelect(event, "Type")}
-        >{type.split("_").join(" ")}
+        data-tab={era.split(" ").join("-")}
+        value={era}
+        on:click={(event) => handleSelect(event, "Era")}
+        >{era.split("_").join(" ")}
         <span
-          data-count={type.split(" ").join("-")}
-          class="options__count options__count--{type.split(' ').join('-')}"
-          >{getTypesCount(type)}</span
+          data-count={era.split(" ").join("-")}
+          class="options__count options__count--{era.split(' ').join('-')}"
+          >{getTypesCount(era)}</span
         >
       </button>
     {/each}
@@ -238,17 +242,17 @@
 </section>
 <div class="selects">
   <div class="select-container">
-    <div class="label">Era</div>
+    <div class="label">Types</div>
     <Select
       indicatorSvg={chevron}
       showChevron={true}
       bind:listOpen={isListOpen}
       {optionIdentifier}
       {labelIdentifier}
-      items={dataset.eras}
-      placeholder="Select an era"
-      on:select={(event) => handleSelect(event, "Era")}
-      on:clear={(event) => handleClear(event, "Era")}
+      items={dataset.types}
+      placeholder="Select a type"
+      on:select={(event) => handleSelect(event, "Type")}
+      on:clear={(event) => handleClear(event, "Type")}
     />
   </div>
 
