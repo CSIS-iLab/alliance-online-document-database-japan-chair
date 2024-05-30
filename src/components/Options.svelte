@@ -29,17 +29,7 @@
   const labelIdentifier = "label"
 
   function updateActiveTab(val) {
-    console.log(val)
     const value = val ? val.split(' ').map((word) => word.toLowerCase()).join('-') : "all"
-  
-    console.log(value)
-    // const spanCountActive = document.querySelector(`.options__count--active`)
-    // const spanCount = document.querySelector(
-    //   `.options__count[data-count="${value}"]`,
-    // )
-    // spanCountActive.classList.remove("options__count--active")
-    // spanCount.classList.add(`options__count--active`)
-
     const activeTab = document.querySelector(`.options__btn--tab--active`)
     const tabActivate = document.querySelector(
       `.options__btn--tab[data-tab="${value}"]`,
@@ -100,8 +90,6 @@
     }
     
     if (selectName === "Era") {
-      console.log(event.target.value.toLowerCase().split(' ').join('-'))
-      if (event.target.value)
       updateActiveTab(event.target.value)
       selectedEra = event.target.value
     } else if (selectName === "Era-link"){
