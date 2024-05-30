@@ -116,40 +116,44 @@
       <thead>
         <tr class="table__header-row">
           {#each headerNames as name}
-            <th class="table__cell--header" scope="col">
-              <div
-                class="table__cell--header__container table__cell--header__container__{name
-                  .toLowerCase()
-                  .split(' ')
-                  .join('-')}"
-                on:click={sortByColumns.includes(name.toLowerCase())
-                  ? (e) => sort(e, name)
-                  : ""}
-              >
-                <span>{name}</span>
-                {#if sortByColumns.includes(name.toLowerCase())}
-                  <div
-                    class="sort-icons-container"
-                    on:click={(e) => sort(e, name)}
-                  >
-                    <button
-                      class="sort-icon sort-icon--{sortBy.col ==
-                        name.toLowerCase().split(' ').join('_') &&
-                      sortBy.ascending
-                        ? 'inactive'
-                        : 'active'}">▲</button
+            {#if name === 'Era'}
+              <!-- skip rendering the era column -->
+            {:else}
+              <th class="table__cell--header" scope="col">
+                <div
+                  class="table__cell--header__container table__cell--header__container__{name
+                    .toLowerCase()
+                    .split(' ')
+                    .join('-')}"
+                  on:click={sortByColumns.includes(name.toLowerCase())
+                    ? (e) => sort(e, name)
+                    : ""}
+                >
+                  <span>{name}</span>
+                  {#if sortByColumns.includes(name.toLowerCase())}
+                    <div
+                      class="sort-icons-container"
+                      on:click={(e) => sort(e, name)}
                     >
-                    <button
-                      class="sort-icon sort-icon--{sortBy.col ==
-                        name.toLowerCase().split(' ').join('_') &&
-                      sortBy.ascending
-                        ? 'active'
-                        : 'inactive'}">▼</button
-                    >
-                  </div>
-                {/if}
-              </div>
-            </th>
+                      <button
+                        class="sort-icon sort-icon--{sortBy.col ==
+                          name.toLowerCase().split(' ').join('_') &&
+                        sortBy.ascending
+                          ? 'inactive'
+                          : 'active'}">▲</button
+                      >
+                      <button
+                        class="sort-icon sort-icon--{sortBy.col ==
+                          name.toLowerCase().split(' ').join('_') &&
+                        sortBy.ascending
+                          ? 'active'
+                          : 'inactive'}">▼</button
+                      >
+                    </div>
+                  {/if}
+                </div>
+              </th>
+            {/if}
           {/each}
         </tr>
       </thead>
@@ -174,8 +178,6 @@
             <td class="table__body__cell table__body__cell--data">
               {rows.type}
             </td>
-            <td class="table__body__cell table__body__cell--data">{rows.era}</td
-            >
           </tr>
           <tr class="extra-content hide">
             <td class="table__body__cell" colspan="6">
