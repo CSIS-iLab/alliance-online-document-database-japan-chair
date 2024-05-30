@@ -17,40 +17,30 @@
 
   $: totalEntries = filteredData.length
 
+  // $: console.log(filteredData)
+
   const documentsTotal = dataset.data.length
-  function getTypesCount(type) {
-    // return dataset.data.filter((row) => row.type.includes(type)).length
-    return dataset.data.filter((row) => row.type === type).length
+  function getTypesCount(era) {
+    // return dataset.data.filter((row) => row.era.includes(era)).length
+    return dataset.data.filter((row) => row.era === era).length
   }
 
   const optionIdentifier = "value"
   const labelIdentifier = "label"
 
   function updateActiveTab(val) {
-    const value = val ? val.split(' ').join('-') : "all"
-    console.log(value)
-    const spanCountActive = document.querySelector(`.options__count--active`)
-    const spanCount = document.querySelector(
-      `.options__count[data-count="${value}"]`,
-    )
-    spanCountActive.classList.remove("options__count--active")
-    spanCount.classList.add(`options__count--active`)
-
+    const value = val ? val.split(' ').map((word) => word.toLowerCase()).join('-') : "all"
     const activeTab = document.querySelector(`.options__btn--tab--active`)
     const tabActivate = document.querySelector(
       `.options__btn--tab[data-tab="${value}"]`,
     )
     activeTab.classList.remove(
       "options__btn--tab--active",
-      "options__btn--tab--Treaty--active",
-      "options__btn--tab-joint-statement--active",
-      "options__btn--tab--exchange-of-notes--active",
-      "options__btn--tab--agreement--active",
-      "options__btn--tab--minutes--active",
-      "options__btn--tab--statement--active",
-      "options__btn--tab--report--active",
-      "options__btn--tab--speech--active",
-      "options__btn--tab--security-consultative-committee--active",
+      "options__btn--tab--the-strategic-bargain--active",
+      "options__btn--tab-the-cold-war--active",
+      "options__btn--tab--purpose-lost-and-regained--active",
+      "options__btn--tab--the-war-on-terror-and-rebalance-to-asia--active",
+      "options__btn--tab--alliance-integration--active",
       "options__btn--tab--all--active",
     )
     tabActivate.classList.add(
@@ -98,16 +88,19 @@
       removeExtraContentStyle()
       switchRowBottomLine()
     }
+    
     if (selectName === "Era") {
-      selectedEra = event.detail.value
+      updateActiveTab(event.target.value)
+      selectedEra = event.target.value
+    } else if (selectName === "Era-link"){
+      updateActiveTab(event)
+      selectedEra = event.split('-').join(' ')
     } else if (selectName === "Month") {
       selectedMonth = event.detail.value
     } else if (selectName === "Year") {
       selectedYear = event.detail.value
-    } else if (selectName === "Type") {
-      console.log(event.target.value.toLowerCase().split(' ').join('-'))
-      updateActiveTab(event.target.value)
-      selectedType = event.target.value
+    } else {
+      selectedType = event.detail.value
     }
   }
 
@@ -172,6 +165,14 @@
   }
 
   onMount(() => {
+    // Simulate a button click based on URL parameter
+    // to filter by era when the user is redirected from the digital report
+    const params = new URLSearchParams(window.location.search)
+    selectedEra = params.get('era') ? params.get('era') : ''
+    if (selectedEra !== '') {
+      handleSelect(selectedEra, "Era-link")
+    }
+    
     isListOpen = false
     const tableContainer = document.getElementById("table-body")
     const table = document.getElementsByClassName("table")[0]
@@ -210,45 +211,45 @@
     <button
       class="options__btn options__btn--tab options__btn--tab--all options__btn--tab--active options__btn--tab--all--active"
       data-tab={"all"}
-      on:click={(event) => handleSelect(event, "Type")}
-      >All <span
+      on:click={(event) => handleSelect(event, "Era")}
+      >All
+      <!-- <span
         data-count={"all"}
         class="options__count options__count--active">{documentsTotal}</span
-      >
+      > -->
     </button>
-    {#each dataset.types as type}
+    {#each dataset.eras as era}
       <button
-        class="options__btn options__btn--tab options__btn--tab--{type
+        class="options__btn options__btn--tab options__btn--tab--{era
           .split(' ')
           .map((word) => word.toLowerCase())
-
           .join('-')} "
-        data-tab={type.split(" ").join("-")}
-        value={type}
-        on:click={(event) => handleSelect(event, "Type")}
-        >{type.split("_").join(" ")}
-        <span
-          data-count={type.split(" ").join("-")}
-          class="options__count options__count--{type.split(' ').join('-')}"
-          >{getTypesCount(type)}</span
-        >
+        data-tab={era.split(" ").map((word) => word.toLowerCase()).join("-")}
+        value={era}
+        on:click={(event) => handleSelect(event, "Era")}
+        >{era.split("_").join(" ")}
+        <!-- <span
+          data-count={era.split(" ").join("-")}
+          class="options__count options__count--{era.split(' ').join('-')}"
+          >{getTypesCount(era)}</span
+        > -->
       </button>
     {/each}
   </div>
 </section>
 <div class="selects">
   <div class="select-container">
-    <div class="label">Era</div>
+    <div class="label">Types</div>
     <Select
       indicatorSvg={chevron}
       showChevron={true}
       bind:listOpen={isListOpen}
       {optionIdentifier}
       {labelIdentifier}
-      items={dataset.eras}
-      placeholder="Select an era"
-      on:select={(event) => handleSelect(event, "Era")}
-      on:clear={(event) => handleClear(event, "Era")}
+      items={dataset.types}
+      placeholder="Select a type"
+      on:select={(event) => handleSelect(event, "Type")}
+      on:clear={(event) => handleClear(event, "Type")}
     />
   </div>
 
