@@ -11,7 +11,7 @@
       The Evolution of the U.S. - Japan Alliance
     </p>
     <p class="intro-content__overline--regular">by the Japan Chair Program</p>
-    <h1 class="intro-content__title">Alliance Online</h1>
+    <h1 class="intro-content__title">Alliance Online Database</h1>
     <p class="intro-content__introduction">
       A curated database of official documents to help users understand the
       history of the U.S.-Japan Alliance from the post-WWII period to the
