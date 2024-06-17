@@ -254,7 +254,7 @@
       items={dataset.types}
       placeholder="Select a type"
       on:select={(event) => handleSelect(event, "Type")}
-      on:clear={(event) => handleClear(event, "Type")}
+      on:clear={() => handleClear("Type")}
     />
   </div>
 
@@ -268,7 +268,7 @@
       items={dataset.months}
       placeholder="Select month"
       on:select={(event) => handleSelect(event, "Month")}
-      on:clear={(event) => handleClear(event, "Month")}
+      on:clear={() => handleClear("Month")}
     />
   </div>
 
@@ -282,7 +282,7 @@
       items={dataset.years}
       placeholder="Select year"
       on:select={(event) => handleSelect(event, "Year")}
-      on:clear={(event) => handleClear(event, "Year")}
+      on:clear={() => handleClear("Year")}
     />
   </div>
 </div>

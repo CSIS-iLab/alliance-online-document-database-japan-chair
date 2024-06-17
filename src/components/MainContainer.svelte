@@ -25,11 +25,15 @@
   $: filteredData = () => {
     return dataset.data
       .filter((row) => {
+        const rowDate = new Date(row.date_string)
+        const rowYear = row.date.getFullYear()
+        const rowMonth = row.date.toLocaleString("default", { month: "long" })
+
         const filteredDocument = searchText ? searchText : row.title
         const filteredEra = selectedEra ? selectedEra : row.era
         const filteredType = selectedType ? selectedType : row.type
-        const filteredMonth = selectedMonth ? selectedMonth : row.date
-        const filteredYear = selectedYear ? selectedYear : row.date
+        const filteredMonth = selectedMonth ? selectedMonth : rowMonth
+        const filteredYear = selectedYear ? selectedYear : rowYear
 
         return (
           (row.title.toLowerCase().includes(filteredDocument.toLowerCase()) ||
@@ -40,20 +44,11 @@
               .includes(filteredDocument.toLowerCase())) &&
           row.type === filteredType &&
           row.era === filteredEra &&
-          row.date === filteredMonth &&
-          row.date === filteredYear
+          rowMonth === filteredMonth &&
+          rowYear === filteredYear
         )
       })
       .sort((a, b) => new Date(a.date) - new Date(b.date))
-      // .sort((a, b) => {
-      //   if (a.title < b.title) {
-      //     return -1
-      //   } else if (a.title > b.title) {
-      //     return 1
-      //   } else {
-      //     return 0
-      //   }
-      // })
   }
 </script>
 
