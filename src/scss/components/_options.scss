@@ -63,15 +63,15 @@
   }
 
   &__btn {
-    display: flex;
+    // display: flex;
     color: $color-text-gray-300;
     @extend %text-style-ui-2;
 
     &--tab {
-      display: flex;
-      align-items: flex-end;
+      // display: flex;
+      // align-items: flex-end;
       position: relative;
-      text-align: left;
+      text-align: center;
       inline-size: min-content;
       padding-top: rem(4);
       padding-bottom: rem(16); 
@@ -79,6 +79,21 @@
       padding-right: rem(4);
       border-bottom: 3px solid $color-background-gray-300;
       margin-right: rem(16);
+    }
+
+    .era-name {
+      display: block; /* Ensures the name is on its own line */
+      pointer-events: none;
+    }
+    
+    .era-years {
+      display: block; /* Ensures the years are on a new line */
+      margin-top: 4px; /* Optional: Adds some space between the name and the years */
+      pointer-events: none;
+
+      &--all {
+        visibility: hidden;
+      }
     }
 
     &--tab--active {
@@ -91,95 +106,75 @@
       border-bottom: 3px solid $color-borders-gray-400;
       transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 
-      .options__count {
-        color: $color-text-gray-300;
-        background-color: $color-background-gray-300;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-      }
     }
 
     &--tab--all--active, &--tab--all--active:hover {
       border-bottom: 3px solid $color-borders-gray-400;
       transition: border-bottom 0.3s ease-in-out;
 
-      .options__count {
-        color: $color-text-white;
-        background-color: $color-text-gray-500;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-      }
     }
 
     &--tab:focus {
       outline: 3px solid $color-focus-outline;
     }
 
-    &--tab--Economic-Development:hover {
+    &--tab--the-strategic-bargain:hover {
       color: $color-text-gray-500;
-      border-bottom: 3px solid $color-policy-goals-economic-development;
+      border-bottom: 3px solid $color-borders-gray-400;
+      transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+    }
+
+    &--tab--the-strategic-bargain--active, &--tab--the-strategic-bargain--active:hover {
+      border-bottom: 3px solid $color-borders-gray-400;
+      transition: border-bottom 0.3s ease-in-out;
+    }
+
+    &--tab--the-cold-war:hover {
+      color: $color-text-gray-500;
+      border-bottom: 3px solid $color-borders-gray-400;
       transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 
-      .options__count {
-        color: $color-text-gray-300;
-        background-color: $color-background-gray-300;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-      }
     }
 
-    &--tab--Economic-Development--active, &--tab--Economic-Development--active:hover {
-      border-bottom: 3px solid $color-policy-goals-economic-development;
+    &--tab--the-cold-war--active,  &--tab--the-cold-war--active:hover {
+      border-bottom: 3px solid $color-borders-gray-400;
       transition: border-bottom 0.3s ease-in-out;
-
-      .options__count {
-        color: $color-text-white;
-        background-color: $color-policy-goals-economic-development;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-      }
     }
 
-    &--tab--Emissions-Reduction:hover {
+    &--tab--purpose-lost-and-regained:hover {
       color: $color-text-gray-500;
-      border-bottom: 3px solid $color-policy-goals-emissions-reduction;
+      border-bottom: 3px solid $color-borders-gray-400;
       transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 
-      .options__count {
-        color: $color-text-gray-300;
-        background-color: $color-background-gray-300;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-      }
     }
 
-    &--tab--Emissions-Reduction--active,  &--tab--Emissions-Reduction--active:hover {
-      border-bottom: 3px solid $color-policy-goals-emissions-reduction;
+    &--tab--purpose-lost-and-regained--active, &--tab--purpose-lost-and-regained--active:hover {
+      border-bottom: 3px solid $color-borders-gray-400;
       transition: border-bottom 0.3s ease-in-out;
-
-      .options__count {
-        color: $color-text-white;
-        background-color: $color-policy-goals-emissions-reduction;
-        transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-      }
     }
 
-    &--tab--Resilience:hover {
+    &--tab--the-war-on-terror-and-rebalance-to-asia:hover {
       color: $color-text-gray-500;
-      border-bottom: 3px solid $color-policy-goals-resilience;
+      border-bottom: 3px solid $color-borders-gray-400;
       transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 
-      .options__count {
-        color: $color-text-gray-300;
-        background-color: $color-background-gray-300;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-      }
     }
 
-    &--tab--Resilience--active, &--tab--Resilience--active:hover {
-      border-bottom: 3px solid $color-policy-goals-resilience;
+    &--tab--the-war-on-terror-and-rebalance-to-asia--active, &--tab--the-war-on-terror-and-rebalance-to-asia--active:hover {
+      border-bottom: 3px solid $color-borders-gray-400;
       transition: border-bottom 0.3s ease-in-out;
+    }
 
-      .options__count {
-        color: $color-text-white;
-        background-color: $color-policy-goals-resilience;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-      }
+    &--tab--alliance-integration:hover {
+      color: $color-text-gray-500;
+      border-bottom: 3px solid $color-borders-gray-400;
+      transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
+
+    }
+
+    &--tab--alliance-integration--active, &--tab--alliance-integration--active:hover {
+      border-bottom: 3px solid $color-borders-gray-400;
+      transition: border-bottom 0.3s ease-in-out;
     }
   }
 

@@ -34,10 +34,11 @@ function processData(res) {
   const data = res.map((row, index) => transformRow(row, index))
   return {
     data,
-    eras: getUniqueValues(data, "era"),
+    eras: getUniqueValues(data, "era_new"),
+    // eras: getUniqueValues(data, "era"),
     types: getUniqueValues(data, "type"),
     months: getMonths(data),
-    years: getYears(data)
+    years: getYears(data),
   }
 }
 
@@ -46,7 +47,12 @@ function transformRow(row, index) {
     id: index,
     date: new Date(row.Date),
     date_string: row.Date,
-    era: row.Era,
+    era: row.Era.trim(),
+    era_new: {
+      era_title: row.Era.trim(),
+      era_years: row.Era_Years.trim(),
+    },
+    eraYears: row.Era_Years,
     title: row.Title,
     description: row.Description,
     type: row.Type.trim(),
@@ -56,6 +62,30 @@ function transformRow(row, index) {
 }
 
 function getUniqueValues(data, key) {
+  if (key === "era_new") {
+    const transformedEras = 
+      data.map((row) => {
+        return {
+          title: row[key].era_title.trim(),
+          years: row[key].era_years.trim(),
+        }
+      })
+    console.log(transformedEras)
+    console.log(data)
+    return transformedEras.reduce((unique, current) => {
+      if (
+        !unique.some(
+          (item) =>
+            item.title === current.title
+        )
+      ) {
+        unique.push(current)
+      }
+      return unique
+    }, [])
+    // return [...new Set(transformedEras.map((row) => JSON.stringify(row.era_new)))].map(era => JSON.parse(era))
+    // return [...new Set(transformedEras)]
+  }
   return [...new Set(data.map((row) => row[key].trim()))]
 }
 

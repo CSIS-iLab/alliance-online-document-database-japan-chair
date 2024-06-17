@@ -37,7 +37,7 @@
     activeTab.classList.remove(
       "options__btn--tab--active",
       "options__btn--tab--the-strategic-bargain--active",
-      "options__btn--tab-the-cold-war--active",
+      "options__btn--tab--the-cold-war--active",
       "options__btn--tab--purpose-lost-and-regained--active",
       "options__btn--tab--the-war-on-terror-and-rebalance-to-asia--active",
       "options__btn--tab--alliance-integration--active",
@@ -212,7 +212,10 @@
       class="options__btn options__btn--tab options__btn--tab--all options__btn--tab--active options__btn--tab--all--active"
       data-tab={"all"}
       on:click={(event) => handleSelect(event, "Era")}
-      >All
+      >
+      
+        <span class="era-name">All</span>
+        <span class="era-years--all">0000-0000</span>
       <!-- <span
         data-count={"all"}
         class="options__count options__count--active">{documentsTotal}</span
@@ -220,14 +223,16 @@
     </button>
     {#each dataset.eras as era}
       <button
-        class="options__btn options__btn--tab options__btn--tab--{era
+        class="options__btn options__btn--tab options__btn--tab--{era.title
           .split(' ')
           .map((word) => word.toLowerCase())
           .join('-')} "
-        data-tab={era.split(" ").map((word) => word.toLowerCase()).join("-")}
-        value={era}
+        data-tab={era.title.split(" ").map((word) => word.toLowerCase()).join("-")}
+        value={era.title}
         on:click={(event) => handleSelect(event, "Era")}
-        >{era.split("_").join(" ")}
+        >
+          <span class="era-name">{era.title}</span>
+          <span class="era-years">{era.years}</span>
         <!-- <span
           data-count={era.split(" ").join("-")}
           class="options__count options__count--{era.split(' ').join('-')}"
