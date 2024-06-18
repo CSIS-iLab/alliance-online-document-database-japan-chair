@@ -108,6 +108,7 @@
     flex-direction: column;
     margin-left: rem(4);
     cursor: pointer;
+    pointer-events: none;
   }
 
   .sort-icon {
