@@ -7,13 +7,16 @@
   import Footer from "./Footer.svelte"
 
   export let dataset
-
+  let currentPage = 1
+  let itemsPerPage = 11
   let selectedEra = ""
   let selectedType = ""
   let selectedMonth = ""
   let selectedYear = ""
   let searchText
   $: row = { isOpen: false }
+
+  // $: totalEntries = filteredData.length
 
   // info to keep track
   // filteredActivity == filteredDocument
@@ -61,6 +64,8 @@
     <Options
       {dataset}
       filteredData={filteredData()}
+      bind:currentPage
+      bind:itemsPerPage
       bind:row
       bind:selectedEra
       bind:selectedType
@@ -69,7 +74,7 @@
       bind:searchText
     />
 
-    <Table filteredData={filteredData()} bind:row />
+    <Table filteredData={filteredData()} bind:row bind:currentPage bind:itemsPerPage />
   </section>
   <About />
   <Footer />

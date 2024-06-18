@@ -15,7 +15,29 @@
   export let searchText = ""
   export let row
 
+  // for pagination on the table
+  export let currentPage
+  export let itemsPerPage
+  // export let totalEntries
   $: totalEntries = filteredData.length
+
+  // const itemsPerPage = 14
+
+  $: totalPages = Math.ceil(totalEntries / itemsPerPage)
+  // resets page to 1 when user changes a dropdown filter
+  $: if (selectedEra || selectedType || selectedMonth || selectedYear) {
+    currentPage = 1
+  }
+
+  // Calculate the range of entries being shown
+  $: startEntry = (currentPage - 1) * itemsPerPage + 1
+  $: endEntry = Math.min(startEntry + itemsPerPage - 1, totalEntries)
+
+  if (endEntry > totalEntries) {
+    endEntry = totalEntries
+  }
+
+  // $: totalEntries = filteredData.length
 
   // $: console.log(filteredData)
 
@@ -29,7 +51,12 @@
   const labelIdentifier = "label"
 
   function updateActiveTab(val) {
-    const value = val ? val.split(' ').map((word) => word.toLowerCase()).join('-') : "all"
+    const value = val
+      ? val
+          .split(" ")
+          .map((word) => word.toLowerCase())
+          .join("-")
+      : "all"
     const activeTab = document.querySelector(`.options__btn--tab--active`)
     const tabActivate = document.querySelector(
       `.options__btn--tab[data-tab="${value}"]`,
@@ -88,13 +115,13 @@
       removeExtraContentStyle()
       switchRowBottomLine()
     }
-    
+
     if (selectName === "Era") {
       updateActiveTab(event.target.value)
       selectedEra = event.target.value
-    } else if (selectName === "Era-link"){
+    } else if (selectName === "Era-link") {
       updateActiveTab(event)
-      selectedEra = event.split('-').join(' ')
+      selectedEra = event.split("-").join(" ")
     } else if (selectName === "Month") {
       selectedMonth = event.detail.value
     } else if (selectName === "Year") {
@@ -133,6 +160,43 @@
 
   $: chevron = isListOpen ? chevronUp : chevronDown
 
+  /* ------------------------------------------------------ */
+  /*                    Handle Pagination                   */
+  /* ------------------------------------------------------ */
+  // Handle clicking the pagination buttons
+  function updateCurrentPage(newPage) {
+    currentPage = newPage
+  }
+
+  function resetExtraContent() {
+    document.querySelectorAll(".extra-content.active").forEach((content) => {
+      content.classList.remove("active")
+      content.classList.remove("table__body__cell--border")
+      content.classList.add("hide")
+    })
+
+    document.querySelectorAll(".title--active").forEach((title) => {
+      title.classList.remove("title--active")
+      title.classList.add("table__body__cell--border")
+    })
+  }
+
+  function goToNextPage() {
+    console.log('next page please')
+    if (currentPage < totalPages) {
+      resetExtraContent()
+      updateCurrentPage(currentPage + 1)
+    }
+  }
+  
+  function goToPreviousPage() {
+    console.log('previous page please')
+    if (currentPage > 1) {
+      resetExtraContent()
+      updateCurrentPage(currentPage - 1)
+    }
+  }
+
   function handleScrollLeft() {
     const tableContainer = document.getElementById("table-body")
     const btnIconLeft = document.querySelector("#icon-scroll-left")
@@ -168,11 +232,11 @@
     // Simulate a button click based on URL parameter
     // to filter by era when the user is redirected from the digital report
     const params = new URLSearchParams(window.location.search)
-    selectedEra = params.get('era') ? params.get('era') : ''
-    if (selectedEra !== '') {
+    selectedEra = params.get("era") ? params.get("era") : ""
+    if (selectedEra !== "") {
       handleSelect(selectedEra, "Era-link")
     }
-    
+
     isListOpen = false
     const tableContainer = document.getElementById("table-body")
     const table = document.getElementsByClassName("table")[0]
@@ -212,14 +276,9 @@
       class="options__btn options__btn--tab options__btn--tab--all options__btn--tab--active options__btn--tab--all--active"
       data-tab={"all"}
       on:click={(event) => handleSelect(event, "Era")}
-      >
-      
-        <span class="era-name">All</span>
-        <span class="era-years--all">0000-0000</span>
-      <!-- <span
-        data-count={"all"}
-        class="options__count options__count--active">{documentsTotal}</span
-      > -->
+    >
+      <span class="era-name">All</span>
+      <span class="era-years--all" aria-hidden="true">1951-2024</span>
     </button>
     {#each dataset.eras as era}
       <button
@@ -227,17 +286,15 @@
           .split(' ')
           .map((word) => word.toLowerCase())
           .join('-')} "
-        data-tab={era.title.split(" ").map((word) => word.toLowerCase()).join("-")}
+        data-tab={era.title
+          .split(" ")
+          .map((word) => word.toLowerCase())
+          .join("-")}
         value={era.title}
         on:click={(event) => handleSelect(event, "Era")}
-        >
-          <span class="era-name">{era.title}</span>
-          <span class="era-years">{era.years}</span>
-        <!-- <span
-          data-count={era.split(" ").join("-")}
-          class="options__count options__count--{era.split(' ').join('-')}"
-          >{getTypesCount(era)}</span
-        > -->
+      >
+        <span class="era-name">{era.title}</span>
+        <span class="era-years">{era.years}</span>
       </button>
     {/each}
   </div>
@@ -291,25 +348,33 @@
     <Search bind:searchText />
     <div class="options__navigation-inner">
       <span class="options__table-total-entries"
-        >Showing {totalEntries} {totalEntries > 1 ? "entries" : "entry"}</span
+        >Showing {startEntry}-{endEntry} of {totalEntries} {totalEntries > 1 ? "entries" : "entry"}</span
       >
       <button
         id="btn-scroll-left"
-        class="btn btn--scroll btn--scroll--left inactive"
-        aria-label="Scroll table to the left"
-        on:click={handleScrollLeft}
+        class="btn btn--scroll btn--scroll--left"
+        class:inactive={currentPage === 1}
+        aria-label="Go to previous page"
+        on:click={goToPreviousPage}
+        disabled={currentPage === 1}
         ><Icon
           id="icon-scroll-left"
           name="Icon-left"
-          class="icon inactive"
+          class="icon {currentPage === 1 ? 'inactive' : ''}"
         /></button
       >
       <button
         id="btn-scroll-right"
         class="btn btn--scroll btn--scroll--right"
-        aria-label="Scroll table to the right"
-        on:click={handleScrollRight}
-        ><Icon id="icon-scroll-right" name="Icon-right" class="icon" /></button
+        class:inactive={currentPage === totalPages}
+        aria-label="Go to next page"
+        on:click={goToNextPage}
+        disabled={currentPage === totalPages}
+        ><Icon
+          id="icon-scroll-right"
+          name="Icon-right"
+          class="icon {currentPage === totalPages ? 'inactive' : ''}"
+        /></button
       >
     </div>
   </section>

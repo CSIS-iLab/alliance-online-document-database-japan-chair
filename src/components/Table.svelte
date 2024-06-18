@@ -6,6 +6,20 @@
   export let filteredData
   export let row
 
+  /* ------------------------------------------------------ */
+  /*                       Pagination                       */
+  /* ------------------------------------------------------ */
+
+  // Pagination state
+  export let currentPage
+  export let itemsPerPage
+
+  // Compute the paginated data
+  $: paginatedData = filteredData.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage,
+  )
+
   let sortIconContainer
   $: sortClass = "inactive"
 
@@ -116,10 +130,11 @@
       <thead>
         <tr class="table__header-row">
           {#each headerNames as name}
-            {#if name === 'Era'}
+            {#if name === "Era"}
               <!-- skip rendering the era column -->
             {:else}
               <th class="table__cell--header" scope="col">
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <div
                   class="table__cell--header__container table__cell--header__container__{name
                     .toLowerCase()
@@ -162,7 +177,8 @@
   <div class="table__container" id="table-body">
     <table class="table table__body">
       <tbody>
-        {#each filteredData as rows}
+        <!-- {#each filteredData as rows} -->
+        {#each paginatedData as rows}
           <tr
             on:click={(e) => handleClick(e)}
             class="title table__body__cell--border"
@@ -184,8 +200,11 @@
               <div class="extra-content__container">
                 <div class="description">{rows.description}</div>
                 <div class="link">
-                  Source: 
-                  <a href={rows.source_link} target="_blank" rel="noopener noreferrer"
+                  Source:
+                  <a
+                    href={rows.source_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     >{rows.source}<span class="icon-container"
                       ><Icon name="Icon-open-blank" class="icon" /></span
                     ></a
