@@ -182,7 +182,6 @@
   }
 
   function goToNextPage() {
-    console.log('next page please')
     if (currentPage < totalPages) {
       resetExtraContent()
       updateCurrentPage(currentPage + 1)
@@ -190,7 +189,6 @@
   }
   
   function goToPreviousPage() {
-    console.log('previous page please')
     if (currentPage > 1) {
       resetExtraContent()
       updateCurrentPage(currentPage - 1)

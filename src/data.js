@@ -70,8 +70,6 @@ function getUniqueValues(data, key) {
           years: row[key].era_years.trim(),
         }
       })
-    console.log(transformedEras)
-    console.log(data)
     return transformedEras.reduce((unique, current) => {
       if (
         !unique.some(
