@@ -2,6 +2,7 @@
 
 main {
 	margin: 0 auto;
+  // padding-bottom: rem(32);
 }
 
 .intro-content {
@@ -232,7 +233,8 @@ main {
   background: url('/U.S.-Japan-Policy-Database.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: calc(100vh - 40px);
+  // min-height: calc(100vh - 40px);
+  min-height: calc(66vh);
 
   @include breakpoint("medium") {
     background-position: 60% 10%;
