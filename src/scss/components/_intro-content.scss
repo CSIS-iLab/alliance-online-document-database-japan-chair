@@ -26,11 +26,11 @@ main {
 			&::after {
 				content: "";
 				display: block;
-				border-bottom: 2px solid $color-borders-gray-100;
-				width: 23px;
+				border-bottom: 2px solid #5680B0;
+				width: 46px;
 				height: 2px;
 				margin: 0 auto;
-				margin-top: rem(8);
+				margin-top: rem(32);
 			}
 		}
 	}
