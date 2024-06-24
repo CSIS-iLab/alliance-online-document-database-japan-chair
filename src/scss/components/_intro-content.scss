@@ -21,6 +21,7 @@ main {
 		&--regular {
 			@extend %text-style-ui-5-caps-pathway-gothic-one;
 			color: $color-text-gray-300;
+      padding-bottom: rem(16);
 
 			&::after {
 				content: "";

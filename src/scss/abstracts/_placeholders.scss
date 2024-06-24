@@ -156,6 +156,8 @@
 %text-style-ui-5-caps-pathway-gothic-one {
   @extend %text-style-ui-5;
   font-family: $font-family-pathway-gothic-one;
+  // @include font-size(32px);
+  @include font-clamp(24px, 32px);
   text-transform: uppercase;
 	letter-spacing:0.04em;
   // line-height: 1;
