@@ -28,7 +28,7 @@ label[aria-hidden="true"],
 
 .search {
   position: relative;
-  background-color: $color-background-white;
+  background-color: $color-background-light-yellow;
   @extend %text-style-ui-2;
 
   &__input {

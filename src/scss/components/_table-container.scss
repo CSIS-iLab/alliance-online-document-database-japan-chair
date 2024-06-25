@@ -2,7 +2,7 @@
 
 .table-container {
   // background-color: $color-background-gray-100;
-  background-color: #FFFCEF;
+  background-color: $color-background-light-yellow;
 
   &__header {
     // max-width: $size__page-max-width;
@@ -12,7 +12,8 @@
 
   &__subtitle {
     @extend %text-style-heading-2-cardo;
-    padding-top: rem(16);
+    padding-top: rem(32);
     text-align: center;
+    color: #890303;
   }
 }

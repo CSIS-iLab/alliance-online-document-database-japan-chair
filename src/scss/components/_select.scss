@@ -19,7 +19,7 @@
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
   gap: rem(24);
-  background-color: $color-background-white;
+  background-color: $color-background-light-yellow;
 
   @include breakpoint('medium') {
     display: grid;

@@ -1,7 +1,7 @@
 @use '../abstracts/' as *;
 
 .options {
-  background-color: $color-background-white;
+  background-color: $color-background-light-yellow;
   
   &__container {
     padding-left: var(--container-padding);
