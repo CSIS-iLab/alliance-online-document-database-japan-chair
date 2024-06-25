@@ -231,25 +231,25 @@
 <style lang="scss">
   @use "../scss/abstracts/" as *;
   @use "../scss/components/table";
-  :global(.tippy-box[data-theme~="energy"]) {
-    @extend %text-style-ui-4;
-    color: $color-text-gray-500;
-    background-color: $color-background-white;
-    padding: rem(6) rem(6) rem(8) rem(6);
-    filter: drop-shadow(0px 1px 9px rgba(0, 0, 0, 0.06))
-      drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
-  }
+  // :global(.tippy-box[data-theme~="energy"]) {
+  //   @extend %text-style-ui-4;
+  //   color: $color-text-gray-500;
+  //   background-color: $color-background-white;
+  //   padding: rem(6) rem(6) rem(8) rem(6);
+  //   filter: drop-shadow(0px 1px 9px rgba(0, 0, 0, 0.06))
+  //     drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
+  // }
 
-  :global(
-      .tippy-box[data-theme~="energy"][data-placement^="top"]
-        > .tippy-arrow::before,
-      .tippy-box[data-theme~="energy"][data-placement^="bottom"]
-        > .tippy-arrow::before,
-      .tippy-box[data-theme~="energy"][data-placement^="left"]
-        > .tippy-arrow::before,
-      .tippy-box[data-theme~="energy"][data-placement^="right"]
-        > .tippy-arrow::before
-    ) {
-    border-top-color: $color-background-white;
-  }
+  // :global(
+  //     .tippy-box[data-theme~="energy"][data-placement^="top"]
+  //       > .tippy-arrow::before,
+  //     .tippy-box[data-theme~="energy"][data-placement^="bottom"]
+  //       > .tippy-arrow::before,
+  //     .tippy-box[data-theme~="energy"][data-placement^="left"]
+  //       > .tippy-arrow::before,
+  //     .tippy-box[data-theme~="energy"][data-placement^="right"]
+  //       > .tippy-arrow::before
+  //   ) {
+  //   border-top-color: $color-background-white;
+  // }
 </style>

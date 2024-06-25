@@ -445,6 +445,8 @@
       // color brand blue 600
       filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg)
         brightness(100%) contrast(84%);
+      // color: $color-borders-blue
+      // filter: invert(49%) sepia(10%) saturate(2086%) hue-rotate(172deg) brightness(95%) contrast(83%);
     }
   }
 

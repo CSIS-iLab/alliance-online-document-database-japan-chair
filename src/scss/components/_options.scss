@@ -55,7 +55,7 @@
     &::before {
       content: "";
       position: absolute;
-      border-bottom: 3px solid $color-background-gray-300;
+      border-bottom: 3px solid $color-background-light-yellow;
       bottom: 0;
       left: -6vw;
       width: 100vw;
@@ -78,7 +78,7 @@
       padding-bottom: rem(16); 
       padding-left: rem(8);
       padding-right: rem(4);
-      border-bottom: 3px solid $color-background-gray-300;
+      border-bottom: 3px solid $color-background-light-yellow;
       margin-right: rem(16);
     }
 
@@ -98,19 +98,19 @@
     }
 
     &--tab--active {
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: border-bottom 0.3s ease-in-out;
     }
 
     &--tab--all:hover {
       color: $color-text-gray-500;
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 
     }
 
     &--tab--all--active, &--tab--all--active:hover {
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: border-bottom 0.3s ease-in-out;
 
     }
@@ -121,60 +121,60 @@
 
     &--tab--the-strategic-bargain:hover {
       color: $color-text-gray-500;
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
     }
 
     &--tab--the-strategic-bargain--active, &--tab--the-strategic-bargain--active:hover {
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: border-bottom 0.3s ease-in-out;
     }
 
     &--tab--the-cold-war:hover {
       color: $color-text-gray-500;
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 
     }
 
     &--tab--the-cold-war--active,  &--tab--the-cold-war--active:hover {
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: border-bottom 0.3s ease-in-out;
     }
 
     &--tab--purpose-lost-and-regained:hover {
       color: $color-text-gray-500;
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 
     }
 
     &--tab--purpose-lost-and-regained--active, &--tab--purpose-lost-and-regained--active:hover {
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: border-bottom 0.3s ease-in-out;
     }
 
     &--tab--the-war-on-terror-and-rebalance-to-asia:hover {
       color: $color-text-gray-500;
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 
     }
 
     &--tab--the-war-on-terror-and-rebalance-to-asia--active, &--tab--the-war-on-terror-and-rebalance-to-asia--active:hover {
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: border-bottom 0.3s ease-in-out;
     }
 
     &--tab--alliance-integration:hover {
       color: $color-text-gray-500;
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: color 0.3s ease-in-out, border-bottom 0.3s ease-in-out;
 
     }
 
     &--tab--alliance-integration--active, &--tab--alliance-integration--active:hover {
-      border-bottom: 3px solid $color-borders-gray-400;
+      border-bottom: 3px solid $color-borders-blue;
       transition: border-bottom 0.3s ease-in-out;
     }
   }
