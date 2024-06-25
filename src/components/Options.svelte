@@ -276,7 +276,7 @@
       on:click={(event) => handleSelect(event, "Era")}
     >
       <span class="era-name">All</span>
-      <span class="era-years--all" aria-hidden="true">1951-2024</span>
+      <span class="era-years--all" aria-hidden="true">Entries</span>
     </button>
     {#each dataset.eras as era}
       <button

@@ -5,7 +5,7 @@
   background-color: #FFFCEF;
 
   &__header {
-    max-width: $size__page-max-width;
+    // max-width: $size__page-max-width;
     margin-left: var(--container-padding);
     margin-right: var(--container-padding);
   }
@@ -13,5 +13,6 @@
   &__subtitle {
     @extend %text-style-heading-2-cardo;
     padding-top: rem(16);
+    text-align: center;
   }
 }
