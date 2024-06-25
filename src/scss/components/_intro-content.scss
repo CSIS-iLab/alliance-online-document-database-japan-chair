@@ -20,7 +20,7 @@ main {
 
 		&--regular {
 			@extend %text-style-ui-5-caps-pathway-gothic-one;
-			color: $color-text-gray-300;
+      color: #621108;
       padding-bottom: rem(16);
 
 			&::after {
@@ -40,7 +40,7 @@ main {
 		margin-bottom: rem(48);
 
 		@extend %text-style-heading-1-cardo;
-		color: $color-text-gray-500;
+    color: $color-text-gray-300;
 		text-align: center;
 	}
 
@@ -51,7 +51,7 @@ main {
 		text-align: center;
 		@extend %text-style-paragraph-1-cardo;
 
-		span {
+		span:not([class]) {
 			color: $color-brand-blue-600;
 		}
 	}
@@ -75,6 +75,7 @@ main {
 			align-items: center;
 			justify-content: center;
 			@extend %text-style-ui-3;
+      font-family: $font-family-pathway-gothic-one;
 		}
 
 		.intro-content__more__icon-container {
@@ -231,7 +232,7 @@ main {
 
 .wrapper {
 	// background-color: $color-background-gray-100;
-  background: url('/U.S.-Japan-Policy-Database-v2.jpg');
+  background: url('/U.S.-Japan-Policy-Database-v3.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   // min-height: calc(100vh - 40px);

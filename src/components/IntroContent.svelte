@@ -20,14 +20,18 @@
         href="https://www.csis.org/programs/japan-chair"
         target="_blank">CSIS Japan Chair Program</a
       >.
-    </p>
-    <p class="intro-content__more">
-      <a class="intro-content__link intro-content__link--more" href="#about"
-        ><span class="intro-content__more__icon-container">
+      <span class="intro-content__more-link" style="white-space: pre">Learn more about this database <a class="intro-content__link svelte-15fn2qg" href="#about">here.
+      <!-- <span class="intro-content__more__icon-container">
           <Icon class="icon__info" name="Icon-info" />
-        </span><span>More on this database</span></a
-      >
+      </span> -->
+      </a></span>
+      
     </p>
+    <!-- <p class="intro-content__more">
+      <a class="intro-content__link intro-content__link--more" href="#about"
+        ><span>More on this database</span></a
+      >
+    </p> -->
   </main>
   <div class="container"></div>
 </div>
