@@ -60,12 +60,14 @@
       color: $color-brand-red;
       text-decoration: none;
 
-      &--back-top {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        @extend %text-style-ui-3;
-      }
+      // &--back-top {
+      //   display: inline-flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   @extend %text-style-ui-3;
+      //   font-family: $font-family-cardo;
+
+      // }
 
       .icon-container {
       // color brand-blue-600
@@ -189,6 +191,8 @@
 
     &__link {
       @extend %text-style-ui-3;
+      font-family: $font-family-cardo;
+
       color: $color-brand-red;
 
       .back-top__icon-container {
