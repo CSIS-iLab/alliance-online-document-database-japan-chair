@@ -42,6 +42,7 @@ main {
 		@extend %text-style-heading-1-cardo;
     color: $color-text-gray-300;
 		text-align: center;
+    filter: drop-shadow(2px 2px 1px rgba(255, 255, 255, .35));
 	}
 
 	&__introduction {
@@ -66,7 +67,7 @@ main {
 	}
 
 	&__link {
-		color: $color-brand-blue-600;
+		color: $color-brand-red;
 		text-decoration: none;
 		transition: $transition__link;
 
@@ -86,7 +87,7 @@ main {
 		}
 
 		&:hover {
-			color: $color-brand-blue-700;
+			color: $color-brand-red-hover;
 
 			.intro-content__more__icon-container {
 				// color: $color-brand-blue-700;
@@ -97,7 +98,7 @@ main {
 		}
 
 		&:visited {
-			color: $color-brand-blue-870;
+			color: $color-brand-red-visited;
 
 			.intro-content__more__icon-container {
 				// color: $color-brand-blue-800;
@@ -108,7 +109,7 @@ main {
 		}
 
 		&:focus {
-			color: $color-brand-blue-700;
+			color: $color-brand-red-hover;
 			background-color: $color-background-light-blue-300;
 			outline-color: $color-focus-outline;
 			.intro-content__more__icon-container {

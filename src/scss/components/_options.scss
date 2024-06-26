@@ -51,7 +51,6 @@
     display: flex;
     text-align: left;
     margin-top: rem(32);
-    justify-content: center;
 
     &::before {
       content: "";
@@ -61,12 +60,21 @@
       left: -6vw;
       width: 100vw;
     }
+
+    @include breakpoint('medium') {
+      justify-content: center;
+    }    
   }
 
   &__btn {
     // display: flex;
     color: $color-text-gray-300;
     @extend %text-style-ui-2-pathway-gothic-one;
+    
+    @include breakpoint('medium') {
+     @include font-size(22px);
+    }
+
 
     &--tab {
       // display: flex;
@@ -184,6 +192,8 @@
     color: $color-text-gray-300;
     margin-right: rem(16);
     @extend %text-style-ui-5;
+    font-family: $font-family-cardo;
+
   }
 
   @include breakpoint('medium') {
