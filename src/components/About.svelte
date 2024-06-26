@@ -77,7 +77,7 @@
         >.
       </p>
       <p class="about__development__people">
-        Design assistance by <a
+        Design by <a
           class="about__development__link"
           href="https://www.csis.org/people/sarah-grace"
           target="_blank"
