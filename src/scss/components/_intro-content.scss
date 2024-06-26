@@ -66,7 +66,7 @@ main {
 	}
 
 	&__link {
-		color: $color-brand-blue-600;
+		color: $color-brand-red;
 		text-decoration: none;
 		transition: $transition__link;
 
@@ -86,7 +86,7 @@ main {
 		}
 
 		&:hover {
-			color: $color-brand-blue-700;
+			color: $color-brand-red-hover;
 
 			.intro-content__more__icon-container {
 				// color: $color-brand-blue-700;
@@ -97,7 +97,7 @@ main {
 		}
 
 		&:visited {
-			color: $color-brand-blue-870;
+			color: $color-brand-red-visited;
 
 			.intro-content__more__icon-container {
 				// color: $color-brand-blue-800;
