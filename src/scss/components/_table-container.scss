@@ -1,15 +1,19 @@
 @use "../abstracts/" as *;
 
 .table-container {
-  background-color: $color-background-gray-100;
+  // background-color: $color-background-gray-100;
+  background-color: $color-background-light-yellow;
 
   &__header {
-    max-width: $size__page-max-width;
+    // max-width: $size__page-max-width;
     margin-left: var(--container-padding);
     margin-right: var(--container-padding);
   }
 
   &__subtitle {
-    @extend %text-style-heading-2;
+    @extend %text-style-heading-2-cardo;
+    padding-top: rem(32);
+    text-align: center;
+    color: #890303;
   }
 }

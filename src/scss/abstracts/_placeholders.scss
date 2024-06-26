@@ -8,9 +8,22 @@
   line-height: 1.1;
 }
 
+%text-style-heading-1-cardo {
+	@include font-clamp(36px, 53px);
+	font-family: $font-family-cardo;
+  font-weight: $font-weight-default;
+  line-height: 1.1;
+}
+
 %text-style-heading-2 {
   @include font-clamp(28px, 32px);
   font-family: $font-family-default;
+	font-weight: $font-weight-bold;
+}
+
+%text-style-heading-2-cardo {
+  @include font-clamp(28px, 32px);
+  font-family: $font-family-cardo;
 	font-weight: $font-weight-bold;
 }
 
@@ -41,6 +54,12 @@
 %text-style-paragraph-1 {
   @include font-size(18px);
   font-family: $font-family-default;
+  line-height: 1.4;
+}
+
+%text-style-paragraph-1-cardo {
+  @include font-size(18px);
+  font-family: $font-family-cardo;
   line-height: 1.4;
 }
 
@@ -75,6 +94,14 @@
   @extend %text-style-ui-1;
 	@include font-size(16px);
   // font-family: $font-family-default;
+	// line-height:1.2;
+}
+
+%text-style-ui-2-pathway-gothic-one {
+  @extend %text-style-ui-1;
+	@include font-size(16px);
+  font-family: $font-family-pathway-gothic-one;
+  // letter-spacing:0.04em;
 	// line-height:1.2;
 }
 
@@ -121,6 +148,16 @@
 
 %text-style-ui-5-caps {
   @extend %text-style-ui-5;
+  text-transform: uppercase;
+	letter-spacing:0.04em;
+  // line-height: 1;
+}
+
+%text-style-ui-5-caps-pathway-gothic-one {
+  @extend %text-style-ui-5;
+  font-family: $font-family-pathway-gothic-one;
+  // @include font-size(32px);
+  @include font-clamp(24px, 32px);
   text-transform: uppercase;
 	letter-spacing:0.04em;
   // line-height: 1;

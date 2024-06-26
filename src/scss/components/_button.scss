@@ -9,8 +9,10 @@
   }
 
   &--scroll {
-    color: #7E8694;
+    color:  $color-borders-blue;
     background-color: #F8F8F8;
+  // color: $color-borders-blue
+  // filter: invert(49%) sepia(10%) saturate(2086%) hue-rotate(172deg) brightness(95%) contrast(83%);
 
     &--left {
       border-radius: 50px 0 0 50px;

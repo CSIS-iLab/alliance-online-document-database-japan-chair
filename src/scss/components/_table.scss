@@ -29,18 +29,18 @@
   }
 
   &__wrapper {
-    background-color: $color-background-white;
+    background-color: $color-background-light-yellow;
   }
   
   &__cell{
-  
+    
     &--header {
       color: $color-text-gray-500;
       padding: rem(12) rem(16);
-      background-color: $color-background-white;
+      background-color: $color-background-light-yellow;
       @extend %text-style-ui-2-bold;
 
-      border-bottom: 1px solid $color-borders-gray-400;
+      // border-bottom: 1px solid $color-borders-gray-400;
       text-align: left;
 
       @include breakpoint('medium') {
@@ -65,8 +65,8 @@
       }
 
       &:nth-child(2) {
-        min-width: rem(128);
-        max-width: rem(128);
+        min-width: rem(150);
+        max-width: rem(150);
       }
 
       &:nth-child(3) {
@@ -108,6 +108,7 @@
     flex-direction: column;
     margin-left: rem(4);
     cursor: pointer;
+    pointer-events: none;
   }
 
   .sort-icon {
@@ -148,7 +149,7 @@
   border-top: 0;
 
   tr {
-    background-color: $color-background-white;
+    background-color: $color-background-light-yellow;
     transition: $transition__link;
   }
 
@@ -157,16 +158,16 @@
   }
 
   .title:hover {
-    background-color: $color-background-gray-100;
+    background-color: $color-background-dark-yellow;
     transition: $transition__link;
   }
   
   .title--active {
-    background-color: $color-background-gray-200;
+    background-color: $color-background-dark-yellow;
   }
 
   .extra-content {
-    background-color: $color-background-gray-200;
+    background-color: $color-background-light-yellow;
 
     .table__body__cell {
       padding-left: 6vw;
@@ -184,7 +185,8 @@
       width: calc(100vw - rem(32) * 2);
       max-width: rem(750);
       max-height: 0px;
-      @extend %text-style-paragraph-2;
+      // @extend %text-style-paragraph-2;
+      font-family: $font-family-cardo;
       transition: $transition__link;
 
       @include breakpoint('medium') {
@@ -261,12 +263,13 @@
     color: $color-text-gray-500;
     
     overflow-wrap: break-word;
-    @extend %text-style-ui-2;
+    // @extend %text-style-ui-2;
+    font-family: $font-family-cardo;
     text-align: left;
     vertical-align: top;
 
     &--border {
-      border-bottom: 1px solid $color-borders-gray-100;
+      border-bottom: 1px solid $color-borders-blue;
     }
 
     &--data {
@@ -308,8 +311,8 @@
     }
 
     &:nth-child(2) {
-      min-width: rem(128);
-      max-width: rem(128);
+      min-width: rem(150);
+      max-width: rem(150);
     }
     
     &:nth-child(3) {

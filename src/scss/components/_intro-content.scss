@@ -2,6 +2,7 @@
 
 main {
 	margin: 0 auto;
+  // padding-bottom: rem(32);
 }
 
 .intro-content {
@@ -18,17 +19,18 @@ main {
 		}
 
 		&--regular {
-			@extend %text-style-ui-4-caps;
-			color: $color-text-gray-300;
+			@extend %text-style-ui-5-caps-pathway-gothic-one;
+      color: #621108;
+      padding-bottom: rem(16);
 
 			&::after {
 				content: "";
 				display: block;
-				border-bottom: 2px solid $color-borders-gray-100;
-				width: 23px;
+				border-bottom: 2px solid #5680B0;
+				width: 46px;
 				height: 2px;
 				margin: 0 auto;
-				margin-top: rem(8);
+				margin-top: rem(32);
 			}
 		}
 	}
@@ -37,8 +39,8 @@ main {
 		margin-top: rem(12);
 		margin-bottom: rem(48);
 
-		@extend %text-style-heading-1;
-		color: $color-text-gray-500;
+		@extend %text-style-heading-1-cardo;
+    color: $color-text-gray-300;
 		text-align: center;
 	}
 
@@ -47,9 +49,9 @@ main {
 		margin-bottom: rem(16);
 		max-width: $size__content-max-width;
 		text-align: center;
-		@extend %text-style-paragraph-1;
+		@extend %text-style-paragraph-1-cardo;
 
-		span {
+		span:not([class]) {
 			color: $color-brand-blue-600;
 		}
 	}
@@ -73,6 +75,7 @@ main {
 			align-items: center;
 			justify-content: center;
 			@extend %text-style-ui-3;
+      font-family: $font-family-pathway-gothic-one;
 		}
 
 		.intro-content__more__icon-container {
@@ -229,13 +232,14 @@ main {
 
 .wrapper {
 	// background-color: $color-background-gray-100;
-	background: linear-gradient(0deg, #f8f8f8 30px, rgba(248, 248, 248, 0) 300px),
-		linear-gradient(
-			201.75deg,
-			rgba(253, 254, 255, 0.5) 2.76%,
-			rgba(224, 239, 248, 0.5) 29.06%,
-			rgba(248, 248, 248, 0.5) 71.58%
-		),
-		linear-gradient(157.14deg, #e0eff8 25.66%, rgba(224, 239, 248, 0.14) 62.15%),
-		#f8f8f8;
+  background: url('/U.S.-Japan-Policy-Database-v3.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  // min-height: calc(100vh - 40px);
+  // min-height: calc(66vh);
+  min-height: calc(100vh);
+
+  @include breakpoint("medium") {
+    background-position: 60% 10%;
+  }
 }
