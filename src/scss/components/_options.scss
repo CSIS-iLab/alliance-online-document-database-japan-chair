@@ -51,7 +51,6 @@
     display: flex;
     text-align: left;
     margin-top: rem(32);
-    justify-content: center;
 
     &::before {
       content: "";
@@ -61,6 +60,10 @@
       left: -6vw;
       width: 100vw;
     }
+
+    @include breakpoint('medium') {
+      justify-content: center;
+    }    
   }
 
   &__btn {
