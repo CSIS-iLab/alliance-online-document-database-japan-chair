@@ -52,12 +52,36 @@
         >, the in-house digital, multimedia, and design agency at the Center for
         Strategic and International Studies.
       </p>
-      <p class="about__development__description">
+      <p class="about__development__people">
         Produced by <a
           class="about__development__link"
           href="https://www.csis.org/people/jose-romero"
           target="_blank"
           rel="noopener noreferrer">José Romero</a
+        >.
+      </p>
+      <p class="about__development__people">
+        Cover design by <a
+          class="about__development__link"
+          href="https://www.csis.org/people/gina-kim"
+          target="_blank"
+          rel="noopener noreferrer">Gina Kim</a
+        >.
+      </p>
+      <p class="about__development__people">
+        Copyediting by <a
+          class="about__development__link"
+          href="https://www.csis.org/people/katherine-stark"
+          target="_blank"
+          rel="noopener noreferrer">Katherine Stark</a
+        >.
+      </p>
+      <p class="about__development__people">
+        Design assistance by <a
+          class="about__development__link"
+          href="https://www.csis.org/people/sarah-grace"
+          target="_blank"
+          rel="noopener noreferrer">Sarah B. Grace</a
         >.
       </p>
     </div>

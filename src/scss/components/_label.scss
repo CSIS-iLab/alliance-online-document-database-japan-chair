@@ -2,6 +2,7 @@
 
 .label {
   @extend %text-style-ui-5-caps;
+  font-family: $font-family-cardo;
   color: $color-text-gray-400;
   padding-bottom: rem(4);
 }

@@ -35,16 +35,19 @@
   &__cell{
     
     &--header {
-      color: $color-text-gray-500;
+      color: $color-text-blood-red;
       padding: rem(12) rem(16);
       background-color: $color-background-light-yellow;
       @extend %text-style-ui-2-bold;
+      font-family: $font-family-pathway-gothic-one;
+      text-transform: uppercase;
 
       // border-bottom: 1px solid $color-borders-gray-400;
       text-align: left;
 
       @include breakpoint('medium') {
         padding: rem(12) rem(24);
+        font-size: rem(22);
       }
 
       &:first-child {
