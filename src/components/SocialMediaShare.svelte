@@ -9,12 +9,12 @@
     </a>
   </li>
   <li class="social__item">
-    <a href="https://twitter.com/CSISEnergy" class="social__link" target="_blank" aria-label="Visit the Japan Chair program Twitter page">
+    <a href="https://twitter.com/csis" class="social__link" target="_blank" aria-label="Visit the CSIS Twitter page">
       <Icon class="icon__social" name="Icon-twitter" />
     </a>
   </li>
   <li class="social__item">
-    <a href="https://www.linkedin.com/company/csis/" class="social__link" target="_blank" aria-label="Visit the CSIS LinkedIn page">
+    <a href="https://www.linkedin.com/company/csis-japan-chair/" class="social__link" target="_blank" aria-label="Visit the Japan Chair LinkedIn page">
       <Icon class="icon__social" name="Icon-linkedin" />
     </a>
   </li>
@@ -24,7 +24,7 @@
     </a>
   </li>
   <li class="social__item">
-    <a href="https://www.youtube.com/channel/UCr5jq6MC_VCe1c5ciIZtk_w" class="social__link" target="_blank" aria-label="Visit the CSIS Youtube page">
+    <a href="https://www.youtube.com/user/csisdc" class="social__link" target="_blank" aria-label="Visit the CSIS Youtube page">
       <Icon class="icon__social" name="Icon-youtube" />
     </a>
   </li>
