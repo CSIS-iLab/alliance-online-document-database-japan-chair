@@ -37,8 +37,11 @@ $color-brand-blue-700: rgba(0, 84, 164, 1);
 $color-brand-blue-800: rgba(1, 43, 105, 1);
 $color-brand-blue-870: rgba(1, 43, 105, 0.7);
 
+$color-brand-filter-red-visited: invert(24%) sepia(72%) saturate(742%) hue-rotate(325deg) brightness(90%) contrast(84%);
 $color-brand-red-visited: rgba(134, 61, 49, 1);
+$color-brand-filter-red-hover: invert(22%) sepia(60%) saturate(1245%) hue-rotate(323deg) brightness(107%) contrast(107%);
 $color-brand-red-hover: rgba(165, 43, 44, 1);
+$color-brand-filter-red: invert(9%) sepia(92%) saturate(3915%) hue-rotate(354deg) brightness(94%) contrast(106%);
 $color-brand-red: rgba(137, 3, 3, 1);
 
 $color-tags-anticipating-climate-impacts: rgba(211, 61, 62, 1);

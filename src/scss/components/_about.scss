@@ -53,7 +53,7 @@
 
     &__link {
       @extend %text-style-ui-2;
-      color: $color-brand-blue-600;
+      color: $color-brand-red;
       text-decoration: none;
 
       &--back-top {
@@ -66,36 +66,36 @@
       .icon-container {
       // color brand-blue-600
         margin-left: rem(4);
-        filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+        filter: $color-brand-filter-red;
       }
 
       &:hover {
-        color: $color-brand-blue-700;
+        color: $color-brand-red-hover;
 
         .icon-container {
           // color: $color-brand-blue-700;
-          filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg) brightness(92%) contrast(101%);
+          filter: $color-brand-filter-red-hover;
         }
       }
       
       &:focus {
-        color: $color-brand-blue-700;
+        color: $color-brand-red-hover;
         background-color: $color-background-light-blue-100;
         outline: 0;
 
         .icon-container {
           // color: $color-brand-blue-700;
-          filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg) brightness(92%) contrast(101%);
+          filter: $color-brand-filter-red-hover;
         }
       }
 
       &:visited {
-        color: $color-brand-blue-870;
+        color: $color-brand-red-visited;
 
         .icon-container {
             // color: $color-brand-blue-800;
             opacity: 0.7;
-            filter: invert(9%) sepia(41%) saturate(6837%) hue-rotate(211deg) brightness(98%) contrast(99%);
+            filter: $color-brand-filter-red-visited;
           }
       }
     }
@@ -142,21 +142,21 @@
     }
 
     &__link {
-      color: $color-brand-blue-600;
+      color: $color-brand-red;
       text-decoration: none;
 
       &:hover {
-        color: $color-brand-blue-700;
+        color: $color-brand-red-hover;
       }
 
       &:focus {
-        color: $color-brand-blue-700;
+        color: $color-brand-red-hover;
         background-color: $color-background-light-blue-100;
         outline: 0;
       }
 
       &:visited {
-        color: $color-brand-blue-870;
+        color: $color-brand-red-visited;
       }
     }
   }
@@ -175,38 +175,43 @@
 
     &__link {
       @extend %text-style-ui-3;
-      color: $color-brand-blue-600;
+      color: $color-brand-red;
 
       .back-top__icon-container {
         // color brand-blue-600
-        filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+        // filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg) brightness(100%) contrast(84%);
+        filter: $color-brand-filter-red;
         transition: $transition__link;
       }
 
       &:hover {
-        color: $color-brand-blue-700;
+        color: $color-brand-red-hover;
   
         .back-top__icon-container {
-          // color: $color-brand-blue-700;
-          filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg) brightness(92%) contrast(101%);
+          filter: $color-brand-filter-red-hover;
           transition: $transition__link;
         }
       }
 
       &:focus {
-        color: $color-brand-blue-700;
+        color: $color-brand-red-hover;
         background-color: $color-background-light-blue-100;
         outline: 0;
 
         .back-top__icon-container {
-          // color: $color-brand-blue-700;
-          filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg) brightness(92%) contrast(101%);
+          filter: $color-brand-filter-red-hover;
           transition: $transition__link;
         }
       }
 
       &:visited {
-        color: $color-brand-blue-870;
+        color: $color-brand-red-visited;
+
+        .back-top__icon-container {
+          opacity: 0.7;
+          filter: $color-brand-filter-red-visited;
+          transition: $transition__link;
+        }
       }
     }
 
