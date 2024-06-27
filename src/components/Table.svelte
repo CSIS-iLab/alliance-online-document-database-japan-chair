@@ -205,10 +205,19 @@
                     href={rows.source_link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    >{rows.source}<span class="icon-container"
+                    >{rows.source}<span class="icon-container--external"
                       ><Icon name="Icon-open-blank" class="icon" /></span
                     ></a
                   >
+                  {#if rows.source === "U.S.-Japan Alliance Reference Book"}
+                    <span
+                      class="icon-tag-container"
+                      use:tooltip={{ theme: "jc" }}
+                      aria-hidden="true"
+                      aria-label={"November 2019, compiled for OUSD-P IPSA EAS by Moriah E. Graham (intern), Fletcher School of Law and Diplomacy."}
+                      ><Icon name="Icon-info-alt" class="icon" /></span
+                    >
+                  {/if}
                 </div>
               </div>
             </td>
@@ -231,25 +240,26 @@
 <style lang="scss">
   @use "../scss/abstracts/" as *;
   @use "../scss/components/table";
-  // :global(.tippy-box[data-theme~="energy"]) {
-  //   @extend %text-style-ui-4;
-  //   color: $color-text-gray-500;
-  //   background-color: $color-background-white;
-  //   padding: rem(6) rem(6) rem(8) rem(6);
-  //   filter: drop-shadow(0px 1px 9px rgba(0, 0, 0, 0.06))
-  //     drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
-  // }
+  :global(.tippy-box[data-theme~="jc"]) {
+    @extend %text-style-ui-4;
+    font-family: $font-family-cardo;
+    color: $color-text-gray-500;
+    background-color: $color-background-white;
+    padding: rem(6) rem(6) rem(8) rem(6);
+    filter: drop-shadow(0px 1px 9px rgba(0, 0, 0, 0.06))
+      drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
+  }
 
-  // :global(
-  //     .tippy-box[data-theme~="energy"][data-placement^="top"]
-  //       > .tippy-arrow::before,
-  //     .tippy-box[data-theme~="energy"][data-placement^="bottom"]
-  //       > .tippy-arrow::before,
-  //     .tippy-box[data-theme~="energy"][data-placement^="left"]
-  //       > .tippy-arrow::before,
-  //     .tippy-box[data-theme~="energy"][data-placement^="right"]
-  //       > .tippy-arrow::before
-  //   ) {
-  //   border-top-color: $color-background-white;
-  // }
+  :global(
+      .tippy-box[data-theme~="jc"][data-placement^="top"]
+        > .tippy-arrow::before,
+      .tippy-box[data-theme~="jc"][data-placement^="bottom"]
+        > .tippy-arrow::before,
+      .tippy-box[data-theme~="jc"][data-placement^="left"]
+        > .tippy-arrow::before,
+      .tippy-box[data-theme~="jc"][data-placement^="right"]
+        > .tippy-arrow::before
+    ) {
+    border-top-color: $color-background-white;
+  }
 </style>
