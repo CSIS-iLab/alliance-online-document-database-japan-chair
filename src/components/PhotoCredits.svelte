@@ -12,7 +12,7 @@
          Japanese Prime Minister Yoshida Shigeru signs the Security Pact. | Bettmann / Contributor via Getty Images
         </li>
         <li>
-          President Nixon and Japanese Prime Minister Eisaku Sato begin their talks on Okinawa 11/19, in the Chief Executive's White House office. Nixon said his meeting with Sato "will probably be the most successful talks that have been held between our two governments." | Bettmann / Contributor via Getty Images
+          President Nixon and Japanese Prime Minister Eisaku Sato begin their talks on Okinawa 11/19, in the Chief Executive's White House office. | Bettmann / Contributor via Getty Images
         </li>
         <li>
           US President Bill Clinton meets Ryutaro Hashimoto during his official visit to Japan. | Larry Downing/Sygma/Sygma via Getty Images

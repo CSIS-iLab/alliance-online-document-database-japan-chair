@@ -214,7 +214,7 @@
                       class="icon-tag-container"
                       use:tooltip={{ theme: "jc" }}
                       aria-hidden="true"
-                      aria-label={"November 2019, compiled for OUSD-P IPSA EAS by Moriah E. Graham (intern), Fletcher School of Law and Diplomacy."}
+                      aria-label={"November 2019, compiled for OUSD-P IPSA EAS by Moriah E. Graham, Fletcher School of Law and Diplomacy."}
                       ><Icon name="Icon-info-alt" class="icon" /></span
                     >
                   {/if}
