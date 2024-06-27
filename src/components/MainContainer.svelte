@@ -4,6 +4,7 @@
   import Options from "./Options.svelte"
   import Table from "./Table.svelte"
   import About from "./About.svelte"
+  import PhotoCredits from "./PhotoCredits.svelte"
   import Footer from "./Footer.svelte"
 
   export let dataset
@@ -77,6 +78,7 @@
     <Table filteredData={filteredData()} bind:row bind:currentPage bind:itemsPerPage />
   </section>
   <About />
+  <PhotoCredits />
   <Footer />
 </div>
 
