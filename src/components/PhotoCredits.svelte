@@ -18,7 +18,7 @@
           US President Bill Clinton meets Ryutaro Hashimoto during his official visit to Japan. | Larry Downing/Sygma/Sygma via Getty Images
         </li>
         <li>
-          US President Barack Obama (R) walks with Japanese Prime Minister Shinzo Abe after laying wreaths in front of a cenotaph to offer a prayer for victims of the atomic bombing in 1945, at Hiroshima Peace Memorial Park in Hiroshima on May 27, 2016. | KIMIMASA MAYAMA/AFP via Getty Images
+          US President Barack Obama (R) walks with Japanese Prime Minister Shinzo Abe after laying wreaths in front of a cenotaph to offer a prayer for victims of the atomic bombing in 1945, at Hiroshima Peace Memorial Park in Hiroshima on May 27, 2016. | Kimimasa Mayama/AFP via Getty Images
         </li>
       </ul>
     </div>
