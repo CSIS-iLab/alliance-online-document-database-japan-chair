@@ -22,8 +22,8 @@
   font-family: arial, sans-serif;
   border-collapse: collapse;
   table-layout: fixed;
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
   // @include breakpoint('large') {
   //   margin-left: auto;
   //   margin-right: auto;
@@ -450,4 +450,8 @@
   @extend %text-style-ui-4;
   color: $color-text-gray-500;
   background-color: $color-background-white;
+}
+
+.hide {
+  display: none;
 }
