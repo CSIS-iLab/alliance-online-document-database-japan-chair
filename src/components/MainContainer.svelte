@@ -41,6 +41,7 @@
 
         return (
           (row.title.toLowerCase().includes(filteredDocument.toLowerCase()) ||
+            row.description.toLowerCase().includes(filteredDocument.toLowerCase()) ||
             row.type.toLowerCase().includes(filteredDocument.toLowerCase()) ||
             row.era.toLowerCase().includes(filteredDocument.toLowerCase()) ||
             row.source
