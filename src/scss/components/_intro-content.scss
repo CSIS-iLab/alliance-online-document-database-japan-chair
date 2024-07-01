@@ -232,15 +232,36 @@ main {
 }
 
 .wrapper {
-	// background-color: $color-background-gray-100;
+	// background-color: $color-background-light-yellow;
   background: url('/U.S.-Japan-Policy-Database-v3.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   // min-height: calc(100vh - 40px);
   // min-height: calc(66vh);
   min-height: calc(100vh);
+  // background-position: 60% 10%;
+
 
   @include breakpoint("medium") {
+    // background: url('/U.S.-Japan-Policy-Database-v3.jpg');
+    // background-size: cover;
+    // background-repeat: no-repeat;
     background-position: 60% 10%;
+  }
+}
+
+.container {
+  &--desktop {
+    visibility: hidden;
+    @include breakpoint("medium") {
+      visibility: visible;
+    }
+  }
+
+  &--mobile {
+    @include breakpoint("medium") {
+      // visibility: hidden;
+      display: none;
+    }
   }
 }
