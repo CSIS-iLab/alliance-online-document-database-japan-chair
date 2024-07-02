@@ -135,6 +135,10 @@ main {
 			max-width: $size__intro-content-wide-max-width;
 		}
 	}
+
+  &--mobile {
+    padding-top: rem(32);
+  }
 }
 
 .intro-bar {
@@ -239,29 +243,38 @@ main {
   // min-height: calc(100vh - 40px);
   // min-height: calc(66vh);
   min-height: calc(100vh);
-  // background-position: 60% 10%;
+  background-position: center;
 
 
   @include breakpoint("medium") {
     // background: url('/U.S.-Japan-Policy-Database-v3.jpg');
     // background-size: cover;
     // background-repeat: no-repeat;
-    background-position: 60% 10%;
+    // background-position: 60% 10%;
   }
 }
 
-.container {
-  &--desktop {
-    visibility: hidden;
-    @include breakpoint("medium") {
-      visibility: visible;
-    }
-  }
+// .container {
 
-  &--mobile {
-    @include breakpoint("medium") {
-      // visibility: hidden;
-      display: none;
+// }
+/* Hide elements by default for mobile */
+.desktop, .mobile {
+  display: none;
+}
+
+.desktop {
+  @include breakpoint("medium") {
+    display: block;
+  }
+}
+
+.mobile {
+  display: block;
+  @include breakpoint("medium") {
+    display: none;
+
+    .show-on-mobile {
+      display: block;
     }
   }
 }
