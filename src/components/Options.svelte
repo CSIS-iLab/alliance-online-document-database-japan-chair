@@ -389,15 +389,18 @@
   :global(.selectContainer) {
     &:hover {
       --borderRadius: 0;
-      --background: #{$color-background-gray-100};
+      // --background: #{$color-background-gray-100};
+      --background: #{$color-background-dark-yellow};
     }
   }
 
   :global(.selectContainer .item.active) {
     position: relative;
     --itemIsActiveBG: transparent;
+    // --itemIsActiveBG: $color-background-light-yellow;
     --itemIsActiveColor: $color-text-gray-500;
-    --itemHoverBG: $color-background-gray-100;
+    // --itemHoverBG: $color-background-gray-100;
+    --itemHoverBG: $color-background-dark-yellow;
 
     &::before {
       content: "L";
@@ -428,6 +431,7 @@
     white-space: unset !important;
   }
   :global(.listContainer) {
+    background-color: $color-background-light-yellow !important;
     --listBorderRadius: rem(2);
     --listZIndex: 15;
     --listMaxHeight: #{rem(450)};

@@ -189,11 +189,12 @@
   }
 
   &__table-total-entries {
-    color: $color-text-gray-300;
+    color: $color-text-blood-red;
     margin-right: rem(16);
     @extend %text-style-ui-5;
     font-family: $font-family-cardo;
-
+    font-size: rem(16);
+    font-weight: 700;
   }
 
   @include breakpoint('medium') {
