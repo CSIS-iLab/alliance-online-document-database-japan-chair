@@ -27,13 +27,14 @@
   // filteredAuthority == filteredYear
 
   $: filteredData = () => {
+    // currentPage = 1
     return dataset.data
       .filter((row) => {
         const rowDate = new Date(row.date_string)
         const rowYear = row.date.getFullYear()
         const rowMonth = row.date.toLocaleString("default", { month: "long" })
 
-        const filteredDocument = searchText ? searchText : row.title
+        const filteredDocument = searchText ? checkIfSearching(searchText) : row.title
         const filteredEra = selectedEra ? selectedEra : row.era
         const filteredType = selectedType ? selectedType : row.type
         const filteredMonth = selectedMonth ? selectedMonth : rowMonth
@@ -41,6 +42,7 @@
 
         return (
           (row.title.toLowerCase().includes(filteredDocument.toLowerCase()) ||
+            row.description.toLowerCase().includes(filteredDocument.toLowerCase()) ||
             row.type.toLowerCase().includes(filteredDocument.toLowerCase()) ||
             row.era.toLowerCase().includes(filteredDocument.toLowerCase()) ||
             row.source
@@ -53,6 +55,11 @@
         )
       })
       .sort((a, b) => new Date(a.date) - new Date(b.date))
+  }
+
+  function checkIfSearching(searchText) {
+    currentPage = 1
+    return searchText
   }
 </script>
 

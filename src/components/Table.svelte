@@ -23,7 +23,7 @@
   let sortIconContainer
   $: sortClass = "inactive"
 
-  const sortByColumns = ["title", "date", "type", "era"]
+  const sortByColumns = ["title", "date (est)", "type", "era"]
 
   function handleClick(e) {
     let title = undefined
@@ -51,7 +51,7 @@
 
   const headerNames = ["Title", "Date (EST)", "Type", "Era"]
 
-  $: sortBy = { col: "activity", ascending: true }
+  $: sortBy = { col: "title", ascending: true }
 
   $: sort = (e, column) => {
     column = column.toLowerCase().replace(/\s/g, "_") // replace spaces using regex with undesrscore
@@ -72,7 +72,7 @@
     let sortModifier = sortBy.ascending ? 1 : -1
 
     // Sort by activity title
-    if (column == "activity") {
+    if (column == "title") {
       return (filteredData = filteredData.sort((a, b) => {
         if (a.title < b.title) {
           return -1 * sortModifier
@@ -81,6 +81,13 @@
         } else {
           return 0
         }
+      }))
+    }
+
+    // sort by date
+    if (column === 'date_(est)' ) {
+      return (filteredData = filteredData.sort((a, b) => {
+        return (new Date(a.date) - new Date(b.date)) * sortModifier;
       }))
     }
 
