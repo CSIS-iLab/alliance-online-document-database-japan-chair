@@ -25,7 +25,14 @@
 
   $: totalPages = Math.ceil(totalEntries / itemsPerPage)
   // resets page to 1 when user changes a dropdown filter
-  $: if (selectedEra || selectedType || selectedMonth || selectedYear) {
+  $: if (
+    selectedEra ||
+    selectedType ||
+    selectedMonth ||
+    selectedYear ||
+    selectedEra === undefined ||
+    selectedEra === ""
+  ) {
     currentPage = 1
   }
 
@@ -119,6 +126,7 @@
     if (selectName === "Era") {
       updateActiveTab(event.target.value)
       selectedEra = event.target.value
+      console.log(selectedEra)
     } else if (selectName === "Era-link") {
       updateActiveTab(event)
       selectedEra = event.split("-").join(" ")
@@ -187,7 +195,7 @@
       updateCurrentPage(currentPage + 1)
     }
   }
-  
+
   function goToPreviousPage() {
     if (currentPage > 1) {
       resetExtraContent()
@@ -346,7 +354,8 @@
     <Search bind:searchText />
     <div class="options__navigation-inner">
       <span class="options__table-total-entries"
-        >Showing {startEntry}-{endEntry} of {totalEntries} {totalEntries > 1 ? "entries" : "entry"}</span
+        >Showing {startEntry}-{endEntry} of {totalEntries}
+        {totalEntries > 1 ? "entries" : "entry"}</span
       >
       <button
         id="btn-scroll-left"
