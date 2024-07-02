@@ -37,10 +37,11 @@
 
 body {
   padding: 0;
-  background: linear-gradient(201.75deg, rgba(253, 254, 255, 0.5) 4.76%, rgba(224, 239, 248, 0.5) 29.06%, rgba(248, 248, 248, 0.5) 71.58%),
-  linear-gradient(164.14deg, #E0EFF8 25.66%, rgba(224, 239, 248, 0.14) 62.15%),
-  linear-gradient(0deg, #F8F8F8, #F8F8F8),
-  #F5F5F5;
+  // background: linear-gradient(201.75deg, rgba(253, 254, 255, 0.5) 4.76%, rgba(224, 239, 248, 0.5) 29.06%, rgba(248, 248, 248, 0.5) 71.58%),
+  // linear-gradient(164.14deg, #E0EFF8 25.66%, rgba(224, 239, 248, 0.14) 62.15%),
+  // linear-gradient(0deg, #F8F8F8, #F8F8F8),
+  // #F5F5F5;
+  background-color: $color-background-light-yellow;
 }
 
 .container {
