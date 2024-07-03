@@ -2,6 +2,7 @@
   import { onMount } from "svelte"
   import tooltip from "../js/tooltip"
   import Icon from "./Icons.svelte"
+  import { CalculationInterpolation } from "sass"
 
   export let filteredData
   export let row
@@ -20,7 +21,6 @@
     currentPage * itemsPerPage,
   )
 
-  let sortIconContainer
   $: sortClass = "inactive"
 
   const sortByColumns = ["title", "date (est)", "type", "era"]
@@ -47,6 +47,13 @@
     extraContent.classList.toggle("active")
     extraContent.classList.toggle("hide")
     row.isOpen ? (row.isOpen = true) : (row.isOpen = !row.isOpen)
+  }
+
+  function handleKeydown(e, name) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault()
+      sort(e, name)
+    }
   }
 
   const headerNames = ["Title", "Date (EST)", "Type", "Era"]
@@ -85,9 +92,9 @@
     }
 
     // sort by date
-    if (column === 'date_(est)' ) {
+    if (column === "date_(est)") {
       return (filteredData = filteredData.sort((a, b) => {
-        return (new Date(a.date) - new Date(b.date)) * sortModifier;
+        return (new Date(a.date) - new Date(b.date)) * sortModifier
       }))
     }
 
@@ -141,7 +148,6 @@
               <!-- skip rendering the era column -->
             {:else}
               <th class="table__cell--header" scope="col">
-                <!-- svelte-ignore a11y-click-events-have-key-events -->
                 <div
                   class="table__cell--header__container table__cell--header__container__{name
                     .toLowerCase()
@@ -150,26 +156,40 @@
                   on:click={sortByColumns.includes(name.toLowerCase())
                     ? (e) => sort(e, name)
                     : ""}
+                  on:keydown={sortByColumns.includes(name.toLowerCase())
+                    ? (e) => handleKeydown(e, name)
+                    : ""}
                 >
                   <span>{name}</span>
                   {#if sortByColumns.includes(name.toLowerCase())}
                     <div
                       class="sort-icons-container"
-                      on:click={(e) => sort(e, name)}
+                      on:click={sortByColumns.includes(name.toLowerCase())
+                        ? (e) => sort(e, name)
+                        : ""}
+                      on:keydown={sortByColumns.includes(name.toLowerCase())
+                        ? (e) => handleKeydown(e, name)
+                        : ""}
                     >
                       <button
                         class="sort-icon sort-icon--{sortBy.col ==
                           name.toLowerCase().split(' ').join('_') &&
                         sortBy.ascending
                           ? 'inactive'
-                          : 'active'}">▲</button
+                          : 'active'}"
+                        on:keydown={sortByColumns.includes(name.toLowerCase())
+                          ? (e) => handleKeydown(e, name)
+                          : ""}>▲</button
                       >
                       <button
                         class="sort-icon sort-icon--{sortBy.col ==
                           name.toLowerCase().split(' ').join('_') &&
                         sortBy.ascending
                           ? 'active'
-                          : 'inactive'}">▼</button
+                          : 'inactive'}"
+                        on:keydown={sortByColumns.includes(name.toLowerCase())
+                          ? (e) => handleKeydown(e, name)
+                          : ""}>▼</button
                       >
                     </div>
                   {/if}

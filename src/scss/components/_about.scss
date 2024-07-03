@@ -1,8 +1,7 @@
-@use '../abstracts/' as *;
+@use "../abstracts/" as *;
 
 .about {
   color: $color-text-gray-500;
-  // background-color: $color-background-gray-100;
   background-color: $color-background-light-yellow;
   padding-top: rem(80);
   padding-bottom: rem(120);
@@ -10,7 +9,7 @@
   padding-right: var(--container-padding);
 
   &__container {
-    @include breakpoint('medium') {
+    @include breakpoint("medium") {
       margin: 0 auto;
       max-width: $size__content-max-width;
     }
@@ -60,17 +59,8 @@
       color: $color-brand-red;
       text-decoration: none;
 
-      // &--back-top {
-      //   display: inline-flex;
-      //   align-items: center;
-      //   justify-content: center;
-      //   @extend %text-style-ui-3;
-      //   font-family: $font-family-cardo;
-
-      // }
-
       .icon-container {
-      // color brand-blue-600
+        // color brand-blue-600
         margin-left: rem(4);
         filter: $color-brand-filter-red;
       }
@@ -83,7 +73,7 @@
           filter: $color-brand-filter-red-hover;
         }
       }
-      
+
       &:focus {
         color: $color-brand-red-hover;
         background-color: $color-background-light-blue-100;
@@ -99,10 +89,10 @@
         color: $color-brand-red-visited;
 
         .icon-container {
-            // color: $color-brand-blue-800;
-            opacity: 0.7;
-            filter: $color-brand-filter-red-visited;
-          }
+          // color: $color-brand-blue-800;
+          opacity: 0.7;
+          filter: $color-brand-filter-red-visited;
+        }
       }
     }
   }
@@ -129,7 +119,7 @@
       }
     }
   }
-  
+
   &__development {
     margin-top: rem(42);
     margin-bottom: rem(8);
@@ -143,16 +133,13 @@
     &__description {
       @extend %text-style-paragraph-2;
       font-family: $font-family-cardo;
-      // p:not(:last-child) {
-      //   margin-bottom: rem(24);
-      // }
     }
-    
+
     &__people {
       @extend %text-style-paragraph-2;
       font-family: $font-family-cardo;
     }
-    
+
     .about__development__people:nth-of-type(2) {
       margin-top: 1.5rem;
     }
@@ -204,7 +191,7 @@
 
       &:hover {
         color: $color-brand-red-hover;
-  
+
         .back-top__icon-container {
           filter: $color-brand-filter-red-hover;
           transition: $transition__link;
