@@ -35,7 +35,6 @@ function processData(res) {
   return {
     data,
     eras: getUniqueValues(data, "era_new"),
-    // eras: getUniqueValues(data, "era"),
     types: getUniqueValues(data, "type"),
     months: getMonths(data),
     years: getYears(data),
@@ -81,8 +80,6 @@ function getUniqueValues(data, key) {
       }
       return unique
     }, [])
-    // return [...new Set(transformedEras.map((row) => JSON.stringify(row.era_new)))].map(era => JSON.parse(era))
-    // return [...new Set(transformedEras)]
   }
   return [...new Set(data.map((row) => row[key].trim()))]
 }
@@ -101,8 +98,3 @@ function getYears(data) {
   let years = data.map((row) => new Date(row.date).getFullYear())
   return [...new Set(years)].sort((a, b) => a - b)
 }
-
-function formatUniqueValues(data, key) {
-  return [...new Set(data.map((item) => item[key]))]
-}
-

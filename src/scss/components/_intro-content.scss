@@ -1,264 +1,141 @@
 @use "../abstracts/" as *;
 
 main {
-	margin: 0 auto;
-  // padding-bottom: rem(32);
+  margin: 0 auto;
 }
 
 .intro-content {
-	padding-top: rem(132);
-	max-width: $size__intro-content-wide-max-width;
-	text-align: center;
+  padding-top: rem(132);
+  max-width: $size__intro-content-wide-max-width;
+  text-align: center;
 
-	&__overline {
-		// TODO: find better names for these modifiers
-		&--small {
-			@extend %text-style-ui-5-caps;
-			color: $color-text-gray-400;
-			margin-bottom: rem(4);
-		}
+  &__overline {
+    &--small {
+      @extend %text-style-ui-5-caps;
+      color: $color-text-gray-400;
+      margin-bottom: rem(4);
+    }
 
-		&--regular {
-			@extend %text-style-ui-5-caps-pathway-gothic-one;
+    &--regular {
+      @extend %text-style-ui-5-caps-pathway-gothic-one;
       color: #621108;
       padding-bottom: rem(16);
 
-			&::after {
-				content: "";
-				display: block;
-				border-bottom: 2px solid #5680B0;
-				width: 46px;
-				height: 2px;
-				margin: 0 auto;
-				margin-top: rem(32);
-			}
-		}
-	}
+      &::after {
+        content: "";
+        display: block;
+        border-bottom: 2px solid #5680b0;
+        width: 46px;
+        height: 2px;
+        margin: 0 auto;
+        margin-top: rem(32);
+      }
+    }
+  }
 
-	&__title {
-		margin-top: rem(12);
-		margin-bottom: rem(48);
+  &__title {
+    margin-top: rem(12);
+    margin-bottom: rem(48);
 
-		@extend %text-style-heading-1-cardo;
+    @extend %text-style-heading-1-cardo;
     color: $color-text-gray-300;
-		text-align: center;
-    filter: drop-shadow(2px 2px 1px rgba(255, 255, 255, .35));
-	}
+    text-align: center;
+    filter: drop-shadow(2px 2px 1px rgba(255, 255, 255, 0.35));
+  }
 
-	&__introduction {
-		margin: 0 auto;
-		margin-bottom: rem(16);
-		max-width: $size__content-max-width;
-		text-align: center;
-		@extend %text-style-paragraph-1-cardo;
+  &__introduction {
+    margin: 0 auto;
+    margin-bottom: rem(16);
+    max-width: $size__content-max-width;
+    text-align: center;
+    @extend %text-style-paragraph-1-cardo;
 
-		span:not([class]) {
-			color: $color-brand-blue-600;
-		}
-	}
+    span:not([class]) {
+      color: $color-brand-blue-600;
+    }
+  }
 
-	&__more {
+  &__more {
+    &__icon-container {
+      position: relative;
+      margin-right: rem(4);
+      top: rem(2);
+    }
+  }
 
-		&__icon-container {
-			position: relative;
-			margin-right: rem(4);
-			top: rem(2);
-		}
-	}
+  &__link {
+    color: $color-brand-red;
+    text-decoration: none;
+    transition: $transition__link;
 
-	&__link {
-		color: $color-brand-red;
-		text-decoration: none;
-		transition: $transition__link;
-
-		&--more {
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			@extend %text-style-ui-3;
+    &--more {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      @extend %text-style-ui-3;
       font-family: $font-family-pathway-gothic-one;
-		}
+    }
 
-		.intro-content__more__icon-container {
-			// color brand-blue-600
-			filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg)
-				brightness(100%) contrast(84%);
-			transition: $transition__link;
-		}
+    .intro-content__more__icon-container {
+      // color brand-blue-600
+      filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg)
+        brightness(100%) contrast(84%);
+      transition: $transition__link;
+    }
 
-		&:hover {
-			color: $color-brand-red-hover;
+    &:hover {
+      color: $color-brand-red-hover;
 
-			.intro-content__more__icon-container {
-				// color: $color-brand-blue-700;
-				filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg)
-					brightness(92%) contrast(101%);
-				transition: $transition__link;
-			}
-		}
+      .intro-content__more__icon-container {
+        // color: $color-brand-blue-700;
+        filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg)
+          brightness(92%) contrast(101%);
+        transition: $transition__link;
+      }
+    }
 
-		&:visited {
-			color: $color-brand-red-visited;
+    &:visited {
+      color: $color-brand-red-visited;
 
-			.intro-content__more__icon-container {
-				// color: $color-brand-blue-800;
-				// opacity: 0.7;
-				filter: invert(9%) sepia(41%) saturate(6837%) hue-rotate(211deg)
-					brightness(98%) contrast(99%);
-			}
-		}
+      .intro-content__more__icon-container {
+        // color: $color-brand-blue-800;
+        // opacity: 0.7;
+        filter: invert(9%) sepia(41%) saturate(6837%) hue-rotate(211deg)
+          brightness(98%) contrast(99%);
+      }
+    }
 
-		&:focus {
-			color: $color-brand-red-hover;
-			background-color: $color-background-light-blue-300;
-			outline-color: $color-focus-outline;
-			.intro-content__more__icon-container {
-				// color: $color-brand-blue-700;
-				filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg)
-					brightness(92%) contrast(101%);
-			}
-		}
-	}
-
-	&__graphs {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin: 0 auto;
-		padding-top: rem(56);
-		padding-bottom: 10rem;
-		justify-content: center;
-		max-width: $size__content-max-width;
-
-		@include breakpoint("medium") {
-			flex-direction: row;
-			max-width: $size__intro-content-wide-max-width;
-		}
-	}
+    &:focus {
+      color: $color-brand-red-hover;
+      background-color: $color-background-light-blue-300;
+      outline-color: $color-focus-outline;
+      .intro-content__more__icon-container {
+        // color: $color-brand-blue-700;
+        filter: invert(22%) sepia(54%) saturate(2858%) hue-rotate(194deg)
+          brightness(92%) contrast(101%);
+      }
+    }
+  }
 
   &--mobile {
     padding-top: rem(32);
   }
 }
 
-.intro-bar {
-	width: 100%;
-
-	&:first-child {
-		@include breakpoint("medium") {
-			margin-right: 3rem;
-		}
-	}
-
-	&:last-child {
-		margin-top: 2rem;
-		@include breakpoint("medium") {
-			margin-top: 0;
-			margin-left: 3rem;
-		}
-	}
-
-	&__title {
-		margin-bottom: rem(10);
-		@extend %text-style-ui-5-bold-caps;
-	}
-
-	&__content {
-		display: flex;
-	}
-
-	&__column {
-		&--labels div,
-		&--bars .bar {
-			height: rem(24);
-			margin-bottom: rem(12);
-			@extend %text-style-ui-3;
-			line-height: 1;
-		}
-
-		&--labels {
-			width: 40%;
-			margin-right: 2rem;
-
-			@include breakpoint("small") {
-				width: rem(200);
-			}
-
-			div {
-				display: flex;
-				align-items: center;
-			}
-		}
-
-		&--bars {
-			position: relative;
-			display: block;
-			flex-grow: 2;
-			border-right: 1px solid $color-borders-gray-300;
-			border-left: 1px solid $color-borders-gray-300;
-
-			.bar {
-				display: flex;
-				align-items: center;
-				background: $color-background-gray-300;
-				@extend %text-style-ui-4;
-			}
-
-			span {
-				height: 100%;
-				background: $color-text-gray-500;
-				display: inline-block;
-				margin-right: rem(5);
-			}
-
-			&:before,
-			&:after {
-				display: block;
-				position: absolute;
-				top: 100%;
-				width: 20px;
-				color: $color-text-gray-200;
-				text-align: center;
-				@extend %text-style-ui-5;
-			}
-
-			&:before {
-				content: "0";
-				left: -10px;
-			}
-
-			&:after {
-				content: attr(data-total-entries);
-				right: -10px;
-			}
-		}
-	}
-}
-
 .wrapper {
-	// background-color: $color-background-light-yellow;
-  background: url('/U.S.-Japan-Policy-Database-v3.jpg');
+  background: url("/U.S.-Japan-Policy-Database-v3.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  // min-height: calc(100vh - 40px);
-  // min-height: calc(66vh);
   min-height: calc(100vh);
   background-position: center;
 
-
   @include breakpoint("medium") {
-    // background: url('/U.S.-Japan-Policy-Database-v3.jpg');
-    // background-size: cover;
-    // background-repeat: no-repeat;
-    // background-position: 60% 10%;
   }
 }
 
-// .container {
-
-// }
 /* Hide elements by default for mobile */
-.desktop, .mobile {
+.desktop,
+.mobile {
   display: none;
 }
 
