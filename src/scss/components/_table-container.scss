@@ -1,11 +1,9 @@
 @use "../abstracts/" as *;
 
 .table-container {
-  // background-color: $color-background-gray-100;
   background-color: $color-background-light-yellow;
 
   &__header {
-    // max-width: $size__page-max-width;
     margin-left: var(--container-padding);
     margin-right: var(--container-padding);
   }

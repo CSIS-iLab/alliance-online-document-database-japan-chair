@@ -11,17 +11,13 @@
   export let selectedMonth = ""
   export let selectedYear = ""
 
-  // export let selectedResourceType
   export let searchText = ""
   export let row
 
   // for pagination on the table
   export let currentPage
   export let itemsPerPage
-  // export let totalEntries
   $: totalEntries = filteredData.length
-
-  // const itemsPerPage = 14
 
   $: totalPages = Math.ceil(totalEntries / itemsPerPage)
   // resets page to 1 when user changes a dropdown filter
@@ -42,16 +38,6 @@
 
   if (endEntry > totalEntries) {
     endEntry = totalEntries
-  }
-
-  // $: totalEntries = filteredData.length
-
-  // $: console.log(filteredData)
-
-  const documentsTotal = dataset.data.length
-  function getTypesCount(era) {
-    // return dataset.data.filter((row) => row.era.includes(era)).length
-    return dataset.data.filter((row) => row.era === era).length
   }
 
   const optionIdentifier = "value"
@@ -126,7 +112,6 @@
     if (selectName === "Era") {
       updateActiveTab(event.target.value)
       selectedEra = event.target.value
-      console.log(selectedEra)
     } else if (selectName === "Era-link") {
       updateActiveTab(event)
       selectedEra = event.split("-").join(" ")
@@ -200,37 +185,6 @@
     if (currentPage > 1) {
       resetExtraContent()
       updateCurrentPage(currentPage - 1)
-    }
-  }
-
-  function handleScrollLeft() {
-    const tableContainer = document.getElementById("table-body")
-    const btnIconLeft = document.querySelector("#icon-scroll-left")
-    const btnIconRight = document.querySelector("#icon-scroll-right")
-
-    tableContainer.scrollLeft -= 100
-    if (btnIconRight.classList.contains("inactive")) {
-      btnIconRight.classList.remove("inactive")
-    }
-    if (tableContainer.scrollLeft === 0) {
-      btnIconLeft.classList.add("inactive")
-    }
-  }
-
-  function handleScrollRight() {
-    const tableContainer = document.getElementById("table-body")
-    const table = document.getElementsByClassName("table")[0]
-    const btnIconLeft = document.querySelector("#icon-scroll-left")
-    const btnIconRight = document.querySelector("#icon-scroll-right")
-    tableContainer.scrollLeft += 100
-    if (btnIconLeft.classList.contains("inactive")) {
-      btnIconLeft.classList.remove("inactive")
-    }
-    if (
-      Math.ceil(tableContainer.scrollLeft) + tableContainer.offsetWidth >=
-      table.offsetWidth
-    ) {
-      btnIconRight.classList.add("inactive")
     }
   }
 
@@ -398,7 +352,6 @@
   :global(.selectContainer) {
     &:hover {
       --borderRadius: 0;
-      // --background: #{$color-background-gray-100};
       --background: #{$color-background-dark-yellow};
     }
   }
@@ -406,9 +359,7 @@
   :global(.selectContainer .item.active) {
     position: relative;
     --itemIsActiveBG: transparent;
-    // --itemIsActiveBG: $color-background-light-yellow;
     --itemIsActiveColor: $color-text-gray-500;
-    // --itemHoverBG: $color-background-gray-100;
     --itemHoverBG: $color-background-dark-yellow;
 
     &::before {
@@ -458,8 +409,6 @@
       // color brand blue 600
       filter: invert(39%) sepia(72%) saturate(6596%) hue-rotate(200deg)
         brightness(100%) contrast(84%);
-      // color: $color-borders-blue
-      // filter: invert(49%) sepia(10%) saturate(2086%) hue-rotate(172deg) brightness(95%) contrast(83%);
     }
   }
 

@@ -17,15 +17,6 @@
   let searchText
   $: row = { isOpen: false }
 
-  // $: totalEntries = filteredData.length
-
-  // info to keep track
-  // filteredActivity == filteredDocument
-  // filteredState == filteredEra
-  // filteredState == filteredType
-  // filteredResource == filteredMonth
-  // filteredAuthority == filteredYear
-
   $: filteredData = () => {
     // currentPage = 1
     return dataset.data
@@ -34,7 +25,9 @@
         const rowYear = row.date.getFullYear()
         const rowMonth = row.date.toLocaleString("default", { month: "long" })
 
-        const filteredDocument = searchText ? checkIfSearching(searchText) : row.title
+        const filteredDocument = searchText
+          ? checkIfSearching(searchText)
+          : row.title
         const filteredEra = selectedEra ? selectedEra : row.era
         const filteredType = selectedType ? selectedType : row.type
         const filteredMonth = selectedMonth ? selectedMonth : rowMonth
@@ -42,7 +35,9 @@
 
         return (
           (row.title.toLowerCase().includes(filteredDocument.toLowerCase()) ||
-            row.description.toLowerCase().includes(filteredDocument.toLowerCase()) ||
+            row.description
+              .toLowerCase()
+              .includes(filteredDocument.toLowerCase()) ||
             row.type.toLowerCase().includes(filteredDocument.toLowerCase()) ||
             row.era.toLowerCase().includes(filteredDocument.toLowerCase()) ||
             row.source
@@ -82,7 +77,12 @@
       bind:searchText
     />
 
-    <Table filteredData={filteredData()} bind:row bind:currentPage bind:itemsPerPage />
+    <Table
+      filteredData={filteredData()}
+      bind:row
+      bind:currentPage
+      bind:itemsPerPage
+    />
   </section>
   <About />
   <PhotoCredits />

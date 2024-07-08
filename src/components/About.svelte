@@ -39,8 +39,7 @@
       </ul>
     </div>
     <div class="about__initiative">
-      <p>
-      </p>
+      <p></p>
     </div>
     <div class="about__development">
       <h3 class="about__development__title">Development Team</h3>
