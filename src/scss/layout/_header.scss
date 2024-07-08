@@ -43,6 +43,10 @@
     }
   }
 
+  a {
+    z-index: 999;
+  }
+
   a,
   button {
     &:hover {

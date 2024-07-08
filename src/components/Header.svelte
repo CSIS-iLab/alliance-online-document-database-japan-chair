@@ -7,8 +7,9 @@
     <a
       href="https://www.csis.org"
       alt="CSIS website logo"
-      title="Go home"
-      aria-label="Go home"
+      title="Visit CSIS website"
+      aria-label="Visit CSIS website"
+      target="_blank"
     >
       <span class="header__logo"></span>
     </a>
