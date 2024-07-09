@@ -10,7 +10,7 @@
       Alliance Online
     </p>
     <h1 class="show-on-mobile intro-content__title">
-      U.S.-Japan Policy Database
+      U.S.-Japan Alliance Database
     </h1>
     <p class="desktop intro-content__introduction">
       A curated database of official documents to help users understand the
