@@ -1,4 +1,4 @@
-# repo-name Database | CSIS
+# Alliance Online Database | CSIS
 
 ### Quick Start Instructions
 This repo uses `node v21.7.3 (npm v10.5.0)`
@@ -6,8 +6,8 @@ Data coming from `https://docs.google.com/spreadsheets/d/e/update-id-here/pub?ou
 Clone & Install the dependencies...
 
 ```bash
-git clone git@github.com:CSIS-iLab/database-table-template.git
-cd repo-name-database
+git clone git@github.com:CSIS-iLab/alliance-online-document-database-japan-chair.git
+cd alliance-online-document-database-japan-chair
 npm install
 ```
 
