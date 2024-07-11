@@ -28,7 +28,7 @@
         <li>
           <a
             class="about__reports__link"
-            href="https://features.csis.org/evolution-of-the-u-s-japan-security-partnership/"
+            href="https://features.csis.org/evolution-of-the-us-japan-security-partnership/"
             target="_blank"
             >Alliance Online: The Evolution of the U.S.-Japan Alliance<span
               class="icon-container"
