@@ -182,7 +182,7 @@
       padding: 0;
       width: calc(100vw - rem(32) * 2);
       max-width: rem(750);
-      max-height: 0px;
+      max-height: fit-content;
       font-family: $font-family-cardo;
       transition: $transition__link;
 
