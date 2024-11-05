@@ -1,5 +1,5 @@
 <script>
-  import SocialMediaShare from "../components/SocialMediaShare.svelte"
+  import SocialMediaShare from "./SocialMediaShare.svelte"
   const currentYear = new Date().getFullYear()
 </script>
 

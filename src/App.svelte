@@ -1,8 +1,7 @@
 <script>
   import { onMount } from "svelte"
   import getData from "./data"
-  import MainContainer from "./components/MainContainer.svelte"
-
+  import MainContainer from "./lib/MainContainer.svelte"
   let dataset = {}
 
   onMount(async () => {

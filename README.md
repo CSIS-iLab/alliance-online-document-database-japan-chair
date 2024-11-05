@@ -1,7 +1,8 @@
 # Alliance Online Database | CSIS
 
 ### Quick Start Instructions
-This repo uses `node v21.7.3 (npm v10.5.0)`
+
+This repo uses `node v22.10.0 (npm v10.9.0)` and `svelte 5`
 Data coming from `https://docs.google.com/spreadsheets/d/e/update-id-here/pub?output=csv`
 Clone & Install the dependencies...
 
@@ -11,7 +12,7 @@ cd alliance-online-document-database-japan-chair
 npm install
 ```
 
-...then start [Rollup](https://rollupjs.org):
+...then start it:
 
 ```bash
 npm run dev
@@ -20,6 +21,7 @@ npm run dev
 Navigate to [localhost:8080](http://localhost:8080). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
 ---
+
 ### Building and running in production mode
 
 To create an optimised version of the app:
@@ -27,6 +29,7 @@ To create an optimised version of the app:
 ```bash
 npm run build
 ```
+
 You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
 
 ---
@@ -56,4 +59,5 @@ Write clear and concise commit messages describing the changes you are making an
 This project uses the [BEM](http://getbem.com/introduction/) naming convention.
 
 ### Copyright / License
+
 Copyright © 2022 CSIS iDeas Lab under the [License](LICENSE).
